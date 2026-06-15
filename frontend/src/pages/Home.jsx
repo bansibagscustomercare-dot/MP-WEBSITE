@@ -92,10 +92,34 @@ const Home = () => {
         jsonLd={jsonLd}
       />
 
-      {/* ── HERO — split editorial ──────────────────────────────────── */}
-      <section className="bg-cream" data-testid="hero-section">
-        <div className="container-mp section grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <div>
+      {/* ── HERO — full-width image background ─────────────────────── */}
+      <section
+        className="relative"
+        data-testid="hero-section"
+        style={{
+          minHeight: "100vh",
+          backgroundImage: "url(/images/hero.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center right",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: "#F7F6F2",
+        }}
+      >
+        {/* Left-side gradient overlay for text legibility */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(247,246,242,0.92) 0%, rgba(247,246,242,0.85) 35%, rgba(247,246,242,0.1) 60%, transparent 100%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div
+          className="container-mp relative grid grid-cols-1 lg:grid-cols-12 items-center"
+          style={{ minHeight: "100vh", paddingTop: 48, paddingBottom: 48 }}
+        >
+          <div className="lg:col-span-6 xl:col-span-5">
             <div className="eyebrow" data-testid="hero-eyebrow">AHMEDABAD'S CONCRETE MIXER PARTS EXPERTS</div>
             <h1 className="h1-hero mt-5" data-testid="hero-headline">
               Built for the machines<br />
@@ -127,24 +151,9 @@ const Home = () => {
             >
               {["20+ Years Experience", "Pan-India Supply", "Direct Manufacturer", "Global Export"].map((t) => (
                 <span key={t} className="inline-flex items-center gap-1.5">
-                  <span style={{ color: "#D05030", fontWeight: 700 }}>✓</span> {t}
+                  <span style={{ color: "#3D3D3D", fontWeight: 700 }}>✓</span> {t}
                 </span>
               ))}
-            </div>
-          </div>
-
-          {/* Hero AI image */}
-          <div className="relative" data-testid="hero-image">
-            <div
-              className="w-full overflow-hidden"
-              style={{ aspectRatio: "4 / 3", borderRadius: 12, backgroundColor: "#1a1a1a" }}
-            >
-              <img
-                src="/images/hero-parts.png"
-                alt="Concrete mixer machine parts — drums, gears, bearings and shafts on a dark steel surface"
-                loading="eager"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
             </div>
           </div>
         </div>
