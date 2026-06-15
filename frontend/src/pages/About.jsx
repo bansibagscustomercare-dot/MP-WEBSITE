@@ -18,28 +18,33 @@ const milestones = [
     year: "1990",
     title: "The Beginning",
     desc: "MP Industries founded in Ahmedabad. Precision parts for cement concrete mixer machines.",
+    popover: "MP Industries founded in Ahmedabad. Started manufacturing precision parts for cement concrete mixer machines from a single workshop.",
     pill: "1st Generation",
   },
   {
     year: "2000",
     title: "Expansion",
     desc: "Expanded product range and grew the distribution network across Gujarat and neighbouring states.",
+    popover: "Expanded the catalog to cover most mixer drive components and grew the dealer network across Gujarat and neighbouring Indian states.",
   },
   {
     year: "2017",
     title: "New Chapter",
     desc: "Acquired by current management. Renewed focus on quality and global reach.",
+    popover: "Acquired by the current management. Renewed focus on quality, modernisation and expanding reach to pan-India and international markets.",
     pill: "2nd Generation",
   },
   {
     year: "2022",
     title: "Machinery Upgrade",
     desc: "Invested in advanced manufacturing equipment. Elevated precision and production capacity across all 69+ product lines.",
+    popover: "Invested in advanced CNC and casting equipment. Lifted production capacity and tolerances across the full 69+ product catalog.",
   },
   {
     year: "2026",
     title: "New Generation",
     desc: "Third generation joins. Fresh vision, global direction — 35 years of legacy.",
+    popover: "Third generation joins the business. Fresh vision, global direction — building on 35 years of manufacturing legacy.",
     pill: "3rd Generation",
   },
 ];
