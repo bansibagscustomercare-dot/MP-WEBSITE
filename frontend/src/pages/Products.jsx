@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Search, X, MessageCircle } from "lucide-react";
 import SEO from "../components/SEO";
+import PageHeader from "../components/PageHeader";
 import ProductCard from "../components/ProductCard";
 import InquiryModal from "../components/InquiryModal";
 import ScrollReveal from "../components/ScrollReveal";
@@ -34,17 +35,18 @@ const Products = () => {
         path="/products"
       />
 
-      <header className="bg-cream">
-        <div className="container-mp pt-16 pb-10 md:pt-20 md:pb-14" data-testid="products-header">
-          <div className="eyebrow">Catalog</div>
-          <h1 className="h1-hero mt-6">Our Products.</h1>
-          <p className="lead mt-4 max-w-2xl">
-            Precision-engineered concrete mixer machine parts. 69+ components for every application.
-          </p>
-        </div>
-      </header>
+      <PageHeader
+        testId="products-header"
+        image="/images/header-products.png"
+        eyebrow="Catalog"
+        title="Our Products."
+        subtext="Precision-engineered concrete mixer machine parts. 69+ components for every application."
+      />
 
-      <section className="bg-white-section sticky top-[var(--nav-height)] z-20" style={{ borderTop: "1px solid #E8E8E8", borderBottom: "1px solid #E8E8E8" }}>
+      <section
+        className="bg-white-section sticky z-20"
+        style={{ top: "var(--nav-height)", borderBottom: "1px solid #E8E8E8" }}
+      >
         <div className="container-mp py-4">
           <div className="relative">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2" size={18} color="#3D3D3D" />
@@ -55,7 +57,7 @@ const Products = () => {
               placeholder="Search products... e.g. Bevel Gear, Drum, Pulley"
               data-testid="products-search-input"
               aria-label="Search products"
-              className="w-full h-12 pl-11 pr-11 rounded-lg border bg-white text-[15px] outline-none focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15"
+              className="w-full h-11 pl-11 pr-11 rounded-lg border bg-white text-[14px] outline-none focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15"
               style={{ borderColor: "#E8E8E8" }}
             />
             {query && (
@@ -70,7 +72,7 @@ const Products = () => {
             )}
           </div>
 
-          <div className="mt-4 -mx-1 flex gap-2 overflow-x-auto pb-2" data-testid="category-chips">
+          <div className="mt-3 -mx-1 flex gap-2 overflow-x-auto pb-1.5" data-testid="category-chips">
             {categories.map((c) => (
               <button
                 key={c.id}
@@ -87,19 +89,21 @@ const Products = () => {
       </section>
 
       <section className="bg-white-section" data-testid="products-grid-section">
-        <div className="container-mp py-12 md:py-16">
+        <div className="container-mp pt-8 pb-16 md:pt-10 md:pb-20">
           {filtered.length === 0 ? (
-            <div className="text-center py-20 max-w-md mx-auto" data-testid="products-no-results">
-              <div className="font-display font-bold text-[32px]" style={{ color: "#1A1A1A" }}>No products found</div>
-              <p className="mt-3" style={{ color: "#3D3D3D" }}>
+            <div className="text-center py-16 max-w-md mx-auto" data-testid="products-no-results">
+              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 28, color: "#1A1A1A" }}>
+                No products found
+              </div>
+              <p className="mt-2" style={{ color: "#3D3D3D", fontSize: 14 }}>
                 Try a different search or contact us directly — we'll help you find the right part.
               </p>
               <a
                 href={whatsappChatURL("Hi MP Industries! I am looking for a specific part. Can you help?")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-md font-semibold text-white"
-                style={{ backgroundColor: "#25D366" }}
+                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold text-white"
+                style={{ backgroundColor: "#25D366", fontSize: 14 }}
                 data-testid="no-results-whatsapp-btn"
               >
                 <MessageCircle size={18} />
@@ -108,12 +112,16 @@ const Products = () => {
             </div>
           ) : (
             <>
-              <div className="text-[11px] uppercase tracking-[0.12em] font-bold mb-5" style={{ color: "#3D3D3D" }} data-testid="products-count">
+              <div
+                className="mb-4"
+                style={{ fontFamily: "Inter", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 700, color: "#3D3D3D" }}
+                data-testid="products-count"
+              >
                 Showing {filtered.length} of {products.length} products
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {filtered.map((p, i) => (
-                  <ScrollReveal key={p.id} delay={Math.min(i * 30, 240)}>
+                  <ScrollReveal key={p.id} delay={Math.min(i * 25, 200)}>
                     <ProductCard product={p} onInquire={setInquiryProduct} />
                   </ScrollReveal>
                 ))}

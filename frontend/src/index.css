@@ -2,19 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── MP Industries — Editorial Industrial design system ─────────────── */
+/* ── MP Industries — Minimal Editorial design system ────────────────── */
 :root {
   --brand: #D05030;
   --brand-dark: #B8402A;
   --brand-tint: #FBF0ED;
   --ink: #1A1A1A;
   --graphite: #3D3D3D;
-  --cream: #F7F6F2;        /* warm off-white page background */
+  --cream: #F7F6F2;
   --surface: #F7F6F2;
   --hairline: #E8E8E8;
   --whatsapp: #25D366;
   --yellow-accent: #E8A020;
-  --nav-height: 76px;
+  --nav-height: 72px;
 }
 
 html { scroll-behavior: smooth; }
@@ -26,8 +26,8 @@ body {
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 ::selection { background: var(--brand); color: #fff; }
@@ -60,7 +60,6 @@ body {
 @layer base {
   * { @apply border-border; }
   body { background-color: var(--cream); }
-  /* Editorial headings use Playfair by default */
   h1, h2 {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 700;
@@ -74,32 +73,47 @@ body {
   }
 }
 
-/* ── Components ──────────────────────────────────────────────────────── */
 @layer components {
   .container-mp {
     @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
     max-width: 1280px;
   }
 
-  /* — Buttons — */
+  /* — Buttons (Inter 600 / 14px) — */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold text-[15px] text-white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 11px 22px;
+    border-radius: 6px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
     background-color: var(--brand);
     transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
   }
   .btn-primary:hover {
     background-color: var(--brand-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px -8px rgba(208, 80, 48, 0.55);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px -8px rgba(208, 80, 48, 0.5);
   }
   .btn-primary:focus-visible { outline: 2px solid var(--brand-dark); outline-offset: 3px; }
 
   .btn-outline-brand {
-    @apply inline-flex items-center justify-center gap-2 rounded-md font-semibold text-[14px];
-    border: 2px solid var(--brand);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1.5px solid var(--brand);
     color: var(--brand);
     background: transparent;
-    padding: 8px 20px;
     transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
   }
   .btn-outline-brand:hover {
@@ -109,28 +123,29 @@ body {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold text-[15px];
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
     color: var(--ink);
-    border: 2px solid var(--ink);
+    border: 1.5px solid var(--ink);
     background-color: transparent;
     transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
   }
   .btn-secondary:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     background-color: var(--ink);
     color: #fff;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md font-medium text-[15px];
-    color: var(--ink);
-    transition: color 0.18s ease, background-color 0.18s ease;
-  }
-  .btn-ghost:hover { color: var(--brand); background-color: var(--brand-tint); }
-
-  /* — Eyebrow label (Accuplus style with short underline) — */
+  /* — Eyebrow — */
   .eyebrow {
-    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 11px;
     text-transform: uppercase;
@@ -143,47 +158,50 @@ body {
   .eyebrow::before {
     content: "";
     display: inline-block;
-    width: 28px;
+    width: 24px;
     height: 2px;
     background-color: var(--brand);
   }
+  .eyebrow.eyebrow-light { color: #ffffff; }
+  .eyebrow.eyebrow-light::before { background-color: #ffffff; }
 
-  /* — Editorial headings — */
-  .display-h {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.05;
-    color: var(--ink);
-  }
+  /* — Editorial headings (compact scale) — */
   .h1-hero {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 700;
-    font-size: clamp(2.4rem, 5.2vw, 3.75rem);
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-  }
-  .h1-section {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 700;
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-size: 32px;
     line-height: 1.1;
     letter-spacing: -0.005em;
     color: var(--ink);
   }
-  .h2-section {
+  @media (min-width: 768px) {
+    .h1-hero { font-size: 48px; line-height: 1.08; }
+  }
+  .h1-section {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 700;
-    font-size: clamp(1.625rem, 2.6vw, 2.125rem);
+    font-size: 26px;
     line-height: 1.15;
     letter-spacing: -0.005em;
     color: var(--ink);
   }
-
+  @media (min-width: 768px) {
+    .h1-section { font-size: 34px; line-height: 1.15; }
+  }
+  .h2-section {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  @media (min-width: 768px) {
+    .h2-section { font-size: 28px; }
+  }
   .lead {
-    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
     color: var(--graphite);
     line-height: 1.7;
   }
@@ -194,31 +212,35 @@ body {
     border: 1px solid var(--hairline);
     border-radius: 12px;
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   }
   .card-mp:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     border-color: var(--brand);
   }
 
-  /* — Pill tag — */
   .pill {
     display: inline-flex;
     align-items: center;
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 9999px;
     border: 1px solid var(--hairline);
     font-family: "Inter", sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--graphite);
     background: #ffffff;
     white-space: nowrap;
   }
 
-  /* — Chips (products filter) — */
   .chip {
-    @apply inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
     border: 1px solid var(--hairline);
     color: var(--graphite);
     background: #fff;
@@ -235,7 +257,7 @@ body {
   /* — Scroll reveal — */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
     transition: opacity 0.55s ease, transform 0.55s ease;
     will-change: opacity, transform;
   }
@@ -255,22 +277,52 @@ body {
   }
   .skip-link:focus { left: 0; }
 
-  /* — Section helpers — */
-  .section { padding: 80px 0; }
-  @media (max-width: 768px) { .section { padding: 56px 0; } }
+  /* — Sections — */
+  .section { padding: 48px 0; }
+  @media (min-width: 768px) { .section { padding: 72px 0; } }
   .bg-cream { background-color: var(--cream); }
   .bg-white-section { background-color: #ffffff; }
 
-  /* — Product image placeholder — */
   .product-ph {
     background-color: var(--cream);
     position: relative;
     overflow: hidden;
     border-radius: 8px;
   }
+
+  /* — Page header banner (used on Products / About / Contact) — */
+  .page-header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+  @media (min-width: 768px) {
+    .page-header { height: 280px; }
+  }
+  .page-header__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .page-header__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+  }
+  .page-header__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
-/* — Reduced motion — */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -281,15 +333,20 @@ body {
   .reveal { opacity: 1 !important; transform: none !important; }
 }
 
-/* — World map region styles — */
-.region-path {
-  fill: #ECECEC;
-  stroke: #DCDCDC;
-  stroke-width: 0.5;
-  transition: fill 0.2s ease, stroke 0.2s ease;
+/* — World map — */
+.wm-country {
+  fill: #FFFFFF;
+  stroke: #C8D8E0;
+  stroke-width: 0.4;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.18s ease;
 }
-.region-path.highlight {
+.wm-country.wm-highlight {
   fill: #D05030;
-  stroke: #B8402A;
+  stroke: #FFFFFF;
+  stroke-width: 0.8;
+  cursor: pointer;
 }
-.region-path.highlight:hover { fill: #B8402A; }
+.wm-country.wm-highlight:hover {
+  fill: #B8402A;
+}

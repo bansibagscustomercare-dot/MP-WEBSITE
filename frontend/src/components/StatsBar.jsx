@@ -34,8 +34,8 @@ const CountUp = ({ to = 100, duration = 1500, suffix = "", start = false }) => {
 const stats = [
   { id: "years", label: "Years of Experience", value: 20, suffix: "+" },
   { id: "products", label: "Products", value: 69, suffix: "+" },
-  { id: "india", label: "Pan-India Supply", text: "All 28 States" },
-  { id: "export", label: "Global Export", text: "Africa & Middle East" },
+  { id: "india", label: "Pan-India Supply", text: "Pan-India" },
+  { id: "export", label: "Global Export", text: "Global" },
 ];
 
 export const StatsBar = () => {
@@ -64,24 +64,26 @@ export const StatsBar = () => {
     <section
       ref={ref}
       className="text-white"
-      style={{ backgroundColor: "#D05030", padding: "64px 0" }}
+      style={{ backgroundColor: "#D05030" }}
       aria-label="Company stats"
       data-testid="stats-bar"
     >
-      <div className="container-mp">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6">
+      <div className="container-mp" style={{ paddingTop: 28, paddingBottom: 28 }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-7 gap-x-4 md:gap-x-6 stats-pad">
           {stats.map((s, i) => (
             <div
               key={s.id}
-              className={`${i !== 0 ? "lg:border-l lg:border-white/25 lg:pl-8" : ""}`}
+              className={`${i !== 0 ? "lg:border-l lg:border-white/25 lg:pl-6" : ""}`}
               data-testid={`stat-${s.id}`}
             >
               <div
-                className="font-display font-bold leading-none tracking-tight"
+                className="leading-none"
                 style={{
                   fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+                  fontWeight: 700,
+                  fontSize: "clamp(28px, 4.2vw, 42px)",
                   letterSpacing: "-0.01em",
+                  whiteSpace: "nowrap",
                 }}
               >
                 {typeof s.value === "number" ? (
@@ -91,8 +93,15 @@ export const StatsBar = () => {
                 )}
               </div>
               <div
-                className="mt-3 text-[11px] uppercase font-bold tracking-[0.12em]"
-                style={{ color: "rgba(255,255,255,0.8)" }}
+                className="mt-2"
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 10,
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  color: "rgba(255,255,255,0.75)",
+                }}
               >
                 {s.label}
               </div>
@@ -100,6 +109,11 @@ export const StatsBar = () => {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (min-width: 768px) {
+          [data-testid="stats-bar"] > div { padding-top: 40px !important; padding-bottom: 40px !important; }
+        }
+      `}</style>
     </section>
   );
 };
