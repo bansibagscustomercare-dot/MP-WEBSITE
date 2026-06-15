@@ -2,43 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── MP Industries global styles ─────────────────────────────────────── */
+/* ── MP Industries — Editorial Industrial design system ─────────────── */
 :root {
   --brand: #D05030;
   --brand-dark: #B8402A;
   --brand-tint: #FBF0ED;
   --ink: #1A1A1A;
-  --graphite: #4A4A4A;
-  --surface: #F5F5F5;
-  --hairline: #E0E0E0;
+  --graphite: #3D3D3D;
+  --cream: #F7F6F2;        /* warm off-white page background */
+  --surface: #F7F6F2;
+  --hairline: #E8E8E8;
   --whatsapp: #25D366;
-  --nav-height: 72px;
+  --yellow-accent: #E8A020;
+  --nav-height: 76px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background-color: #ffffff;
+  background-color: var(--cream);
   color: var(--ink);
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-::selection {
-  background: var(--brand);
-  color: #ffffff;
-}
+::selection { background: var(--brand); color: #fff; }
 
-/* shadcn token vars (kept light + neutral so any shadcn ui still renders) */
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 40 20% 97%;
     --foreground: 0 0% 10%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 10%;
@@ -46,16 +42,16 @@ body {
     --popover-foreground: 0 0% 10%;
     --primary: 12 64% 50%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 96%;
+    --secondary: 40 20% 95%;
     --secondary-foreground: 0 0% 10%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 35%;
-    --accent: 0 0% 96%;
+    --muted: 40 20% 95%;
+    --muted-foreground: 0 0% 24%;
+    --accent: 40 20% 95%;
     --accent-foreground: 0 0% 10%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
     --ring: 12 64% 50%;
     --radius: 0.625rem;
   }
@@ -63,7 +59,19 @@ body {
 
 @layer base {
   * { @apply border-border; }
-  body { @apply bg-background text-foreground; }
+  body { background-color: var(--cream); }
+  /* Editorial headings use Playfair by default */
+  h1, h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  h3 {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
 }
 
 /* ── Components ──────────────────────────────────────────────────────── */
@@ -73,6 +81,7 @@ body {
     max-width: 1280px;
   }
 
+  /* — Buttons — */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold text-[15px] text-white;
     background-color: var(--brand);
@@ -83,15 +92,26 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px -8px rgba(208, 80, 48, 0.55);
   }
-  .btn-primary:focus-visible {
-    outline: 2px solid var(--brand-dark);
-    outline-offset: 3px;
+  .btn-primary:focus-visible { outline: 2px solid var(--brand-dark); outline-offset: 3px; }
+
+  .btn-outline-brand {
+    @apply inline-flex items-center justify-center gap-2 rounded-md font-semibold text-[14px];
+    border: 2px solid var(--brand);
+    color: var(--brand);
+    background: transparent;
+    padding: 8px 20px;
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  }
+  .btn-outline-brand:hover {
+    background-color: var(--brand);
+    color: #fff;
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold text-[15px];
     color: var(--ink);
-    border: 1.5px solid var(--ink);
+    border: 2px solid var(--ink);
     background-color: transparent;
     transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
   }
@@ -108,48 +128,95 @@ body {
   }
   .btn-ghost:hover { color: var(--brand); background-color: var(--brand-tint); }
 
+  /* — Eyebrow label (Accuplus style with short underline) — */
   .eyebrow {
-    @apply uppercase font-semibold tracking-[0.18em] text-xs;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
     color: var(--brand);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background-color: var(--brand);
   }
 
+  /* — Editorial headings — */
   .display-h {
-    @apply font-display font-bold tracking-tight;
-    line-height: 1.02;
-  }
-
-  .h1-section {
-    @apply font-display font-bold tracking-tight;
-    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     line-height: 1.05;
     color: var(--ink);
   }
-
-  .h2-section {
-    @apply font-display font-bold tracking-tight;
-    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+  .h1-hero {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 5.2vw, 3.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .h1-section {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
     line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .h2-section {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.625rem, 2.6vw, 2.125rem);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
     color: var(--ink);
   }
 
   .lead {
-    @apply text-base sm:text-lg;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
     color: var(--graphite);
-    line-height: 1.65;
+    line-height: 1.7;
   }
 
+  /* — Cards — */
   .card-mp {
-    @apply bg-white;
+    background-color: #ffffff;
     border: 1px solid var(--hairline);
-    border-radius: 10px;
+    border-radius: 12px;
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
   }
   .card-mp:hover {
     transform: translateY(-3px);
-    box-shadow: 0 18px 40px -22px rgba(26, 26, 26, 0.22);
-    border-color: #d4d4d4;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    border-color: var(--brand);
   }
 
+  /* — Pill tag — */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    border: 1px solid var(--hairline);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    color: var(--graphite);
+    background: #ffffff;
+    white-space: nowrap;
+  }
+
+  /* — Chips (products filter) — */
   .chip {
     @apply inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium;
     border: 1px solid var(--hairline);
@@ -165,19 +232,16 @@ body {
     border-color: var(--brand);
   }
 
-  /* Scroll reveal */
+  /* — Scroll reveal — */
   .reveal {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.55s ease, transform 0.55s ease;
     will-change: opacity, transform;
   }
-  .reveal.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
 
-  /* Skip-to-content link */
+  /* — Skip link — */
   .skip-link {
     position: absolute;
     left: -9999px;
@@ -190,54 +254,25 @@ body {
     font-weight: 600;
   }
   .skip-link:focus { left: 0; }
+
+  /* — Section helpers — */
+  .section { padding: 80px 0; }
+  @media (max-width: 768px) { .section { padding: 56px 0; } }
+  .bg-cream { background-color: var(--cream); }
+  .bg-white-section { background-color: #ffffff; }
+
+  /* — Product image placeholder — */
+  .product-ph {
+    background-color: var(--cream);
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
 }
 
-/* Hero background — animated industrial gradient placeholder */
-.hero-bg {
-  background:
-    radial-gradient(120% 80% at 80% 10%, rgba(208, 80, 48, 0.25) 0%, transparent 55%),
-    radial-gradient(80% 60% at 10% 90%, rgba(208, 80, 48, 0.18) 0%, transparent 60%),
-    linear-gradient(135deg, #1a1a1a 0%, #2a2421 45%, #1a1a1a 100%);
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 80px),
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 80px);
-  pointer-events: none;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  pointer-events: none;
-}
-
-/* Product image placeholder */
-.product-ph {
-  background:
-    linear-gradient(135deg, #f7f5f3 0%, #ececec 100%);
-  position: relative;
-  overflow: hidden;
-}
-.product-ph::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(208,80,48,0.05) 0 8px, transparent 8px 18px);
-  pointer-events: none;
-}
-
-/* Reduced motion */
+/* — Reduced motion — */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
@@ -246,10 +281,10 @@ body {
   .reveal { opacity: 1 !important; transform: none !important; }
 }
 
-/* World map region styles */
+/* — World map region styles — */
 .region-path {
   fill: #ECECEC;
-  stroke: #D9D9D9;
+  stroke: #DCDCDC;
   stroke-width: 0.5;
   transition: fill 0.2s ease, stroke 0.2s ease;
 }
@@ -257,6 +292,4 @@ body {
   fill: #D05030;
   stroke: #B8402A;
 }
-.region-path.highlight:hover {
-  fill: #B8402A;
-}
+.region-path.highlight:hover { fill: #B8402A; }

@@ -16,7 +16,11 @@ const Products = () => {
     const q = query.trim().toLowerCase();
     return products.filter((p) => {
       const catOk = category === "all" || p.category === category;
-      const qOk = !q || p.name.toLowerCase().includes(q) || p.detail.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+      const qOk =
+        !q ||
+        p.name.toLowerCase().includes(q) ||
+        p.detail.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q);
       return catOk && qOk;
     });
   }, [query, category]);
@@ -30,20 +34,20 @@ const Products = () => {
         path="/products"
       />
 
-      <header className="bg-white border-b border-hairline" data-testid="products-header">
-        <div className="container-mp pt-14 pb-10 md:pt-20 md:pb-14">
+      <header className="bg-cream">
+        <div className="container-mp pt-16 pb-10 md:pt-20 md:pb-14" data-testid="products-header">
           <div className="eyebrow">Catalog</div>
-          <h1 className="h1-section mt-2">Our Products</h1>
-          <p className="lead mt-3 max-w-2xl">
+          <h1 className="h1-hero mt-6">Our Products.</h1>
+          <p className="lead mt-4 max-w-2xl">
             Precision-engineered concrete mixer machine parts. 69+ components for every application.
           </p>
         </div>
       </header>
 
-      <section className="bg-white sticky top-[var(--nav-height)] z-20 border-b border-hairline">
+      <section className="bg-white-section sticky top-[var(--nav-height)] z-20" style={{ borderTop: "1px solid #E8E8E8", borderBottom: "1px solid #E8E8E8" }}>
         <div className="container-mp py-4">
           <div className="relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2" size={18} color="#4A4A4A" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2" size={18} color="#3D3D3D" />
             <input
               type="search"
               value={query}
@@ -51,7 +55,8 @@ const Products = () => {
               placeholder="Search products... e.g. Bevel Gear, Drum, Pulley"
               data-testid="products-search-input"
               aria-label="Search products"
-              className="w-full h-12 pl-11 pr-11 rounded-md border border-hairline bg-white text-[15px] outline-none focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15"
+              className="w-full h-12 pl-11 pr-11 rounded-lg border bg-white text-[15px] outline-none focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15"
+              style={{ borderColor: "#E8E8E8" }}
             />
             {query && (
               <button
@@ -81,12 +86,12 @@ const Products = () => {
         </div>
       </section>
 
-      <section className="bg-white" data-testid="products-grid-section">
-        <div className="container-mp py-10 md:py-14">
+      <section className="bg-white-section" data-testid="products-grid-section">
+        <div className="container-mp py-12 md:py-16">
           {filtered.length === 0 ? (
             <div className="text-center py-20 max-w-md mx-auto" data-testid="products-no-results">
-              <div className="font-display font-bold text-3xl text-ink">No products found</div>
-              <p className="mt-3 text-graphite">
+              <div className="font-display font-bold text-[32px]" style={{ color: "#1A1A1A" }}>No products found</div>
+              <p className="mt-3" style={{ color: "#3D3D3D" }}>
                 Try a different search or contact us directly — we'll help you find the right part.
               </p>
               <a
@@ -103,7 +108,7 @@ const Products = () => {
             </div>
           ) : (
             <>
-              <div className="text-[13px] uppercase tracking-[0.18em] font-semibold text-graphite mb-5" data-testid="products-count">
+              <div className="text-[11px] uppercase tracking-[0.12em] font-bold mb-5" style={{ color: "#3D3D3D" }} data-testid="products-count">
                 Showing {filtered.length} of {products.length} products
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

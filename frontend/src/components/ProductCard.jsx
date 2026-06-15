@@ -1,47 +1,59 @@
 import React from "react";
+import { categories } from "../data/products";
 
 const slugify = (s) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+const categoryLabel = (id) =>
+  categories.find((c) => c.id === id)?.label || id;
 
 export const ProductCard = ({ product, onInquire }) => {
   const handleId = `product-card-${slugify(product.name)}`;
   return (
     <article
-      className="card-mp overflow-hidden flex flex-col"
+      className="card-mp overflow-hidden flex flex-col p-4"
       data-testid={handleId}
     >
-      <div className="product-ph aspect-[4/3] flex items-center justify-center relative">
-        <svg width="84" height="60" viewBox="0 0 64 46" aria-hidden="true">
-          <ellipse cx="32" cy="23" rx="28" ry="19" fill="#D05030" opacity="0.18" />
+      <div className="product-ph aspect-square flex items-center justify-center relative">
+        <svg width="74" height="54" viewBox="0 0 64 46" aria-hidden="true" style={{ opacity: 0.22 }}>
+          <ellipse cx="32" cy="23" rx="28" ry="19" fill="#D05030" />
           <text
             x="32"
             y="30"
             textAnchor="middle"
-            fontFamily="'Barlow Condensed', Impact, sans-serif"
+            fontFamily="'Playfair Display', Georgia, serif"
             fontWeight="800"
             fontSize="20"
-            fill="#D05030"
-            opacity="0.85"
+            fill="#FFFFFF"
           >
             MP
           </text>
         </svg>
-        <div className="absolute bottom-2 right-2 text-[10px] font-semibold uppercase tracking-wider text-[#4A4A4A]/70 bg-white/70 px-2 py-0.5 rounded">
-          Image coming soon
-        </div>
       </div>
 
-      <div className="p-4 flex flex-col gap-2 flex-1">
-        <h3 className="text-[16px] font-semibold text-ink leading-snug">
+      <div className="pt-4 pb-1 flex flex-col gap-1.5 flex-1">
+        <div
+          className="text-[10px] font-bold uppercase tracking-[0.1em]"
+          style={{ color: "#D05030" }}
+        >
+          {categoryLabel(product.category)}
+        </div>
+        <h3
+          className="font-display font-semibold text-[16px] leading-snug"
+          style={{ color: "#1A1A1A" }}
+        >
           {product.name}
         </h3>
-        <p className="text-[13.5px] text-graphite leading-relaxed flex-1">
+        <p className="text-[13px] leading-relaxed flex-1" style={{ color: "#3D3D3D" }}>
           {product.detail}
         </p>
         <button
           type="button"
           onClick={() => onInquire(product)}
-          className="btn-primary mt-2 w-full"
+          className="mt-3 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-md text-white font-semibold text-[14px] transition-all hover:-translate-y-0.5"
+          style={{ backgroundColor: "#D05030", fontFamily: "Inter, sans-serif" }}
+          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#B8402A")}
+          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#D05030")}
           data-testid={`${handleId}-inquire-btn`}
         >
           Inquire Now

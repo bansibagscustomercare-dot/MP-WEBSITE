@@ -6,26 +6,36 @@ import { SITE, whatsappChatURL } from "../data/site";
 export const Footer = () => {
   return (
     <footer className="bg-[#1A1A1A] text-white" data-testid="footer">
-      <div className="container-mp py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div className="container-mp py-16 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-5">
           <div className="flex items-center gap-3">
             <svg width="44" height="32" viewBox="0 0 64 46" aria-hidden="true">
               <ellipse cx="32" cy="23" rx="30" ry="21" fill="#D05030" />
-              <text x="32" y="30" textAnchor="middle" fontFamily="'Barlow Condensed', Impact, sans-serif" fontWeight="800" fontSize="22" fill="#FFFFFF">MP</text>
+              <text
+                x="32"
+                y="30"
+                textAnchor="middle"
+                fontFamily="'Playfair Display', Georgia, serif"
+                fontWeight="800"
+                fontSize="22"
+                fill="#FFFFFF"
+              >
+                MP
+              </text>
             </svg>
             <div>
-              <div className="font-display font-bold text-xl tracking-tight">MP INDUSTRIES</div>
-              <div className="text-[11px] uppercase tracking-[0.18em] text-[#D05030] mt-0.5">Since 2004</div>
+              <div className="font-display font-bold text-[20px] tracking-tight">MP Industries</div>
+              <div className="text-[10px] uppercase tracking-[0.16em] text-white/55 mt-1">Concrete Mixer Parts</div>
             </div>
           </div>
-          <p className="mt-5 text-[15px] leading-relaxed text-white/70 max-w-md">
+          <p className="mt-6 text-[15px] leading-relaxed text-white/60 max-w-md">
             {SITE.tagline}. Precision concrete mixer machine parts, manufactured in Ahmedabad and supplied across India, Africa and the Middle East.
           </p>
           <a
             href={whatsappChatURL()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-md font-semibold text-[15px] text-white transition-transform hover:-translate-y-0.5"
+            className="mt-7 inline-flex items-center gap-2 px-5 py-3 rounded-md font-semibold text-[15px] text-white transition-transform hover:-translate-y-0.5"
             style={{ backgroundColor: "#25D366" }}
             data-testid="footer-whatsapp-btn"
           >
@@ -35,9 +45,7 @@ export const Footer = () => {
         </div>
 
         <div className="md:col-span-3">
-          <h4 className="text-[12px] uppercase font-semibold tracking-[0.18em] text-[#D05030]">
-            Quick Links
-          </h4>
+          <h4 className="text-[11px] uppercase font-bold tracking-[0.12em] text-white/55">Quick Links</h4>
           <ul className="mt-4 space-y-2.5">
             {[
               { to: "/", label: "Home" },
@@ -48,7 +56,7 @@ export const Footer = () => {
               <li key={l.to}>
                 <Link
                   to={l.to}
-                  className="text-[15px] text-white/75 hover:text-white transition-colors"
+                  className="text-[15px] text-white/75 hover:text-[#D05030] transition-colors"
                   data-testid={`footer-link-${l.label.toLowerCase().replace(/ /g, "-")}`}
                 >
                   {l.label}
@@ -59,20 +67,18 @@ export const Footer = () => {
         </div>
 
         <div className="md:col-span-4">
-          <h4 className="text-[12px] uppercase font-semibold tracking-[0.18em] text-[#D05030]">
-            Contact
-          </h4>
-          <ul className="mt-4 space-y-3 text-[15px] text-white/80">
+          <h4 className="text-[11px] uppercase font-bold tracking-[0.12em] text-white/55">Contact</h4>
+          <ul className="mt-4 space-y-3 text-[15px] text-white/75">
             <li className="flex items-start gap-3">
               <Phone size={16} className="mt-1 text-[#D05030]" />
               <div>
-                <a href={`tel:${SITE.phonePrimary.replace(/\s/g, "")}`} className="block hover:text-white">{SITE.phonePrimary}</a>
-                <a href={`tel:${SITE.phoneSecondary.replace(/\s/g, "")}`} className="block hover:text-white">{SITE.phoneSecondary}</a>
+                <a href={`tel:${SITE.phonePrimary.replace(/\s/g, "")}`} className="block hover:text-[#D05030] transition-colors">{SITE.phonePrimary}</a>
+                <a href={`tel:${SITE.phoneSecondary.replace(/\s/g, "")}`} className="block hover:text-[#D05030] transition-colors">{SITE.phoneSecondary}</a>
               </div>
             </li>
             <li className="flex items-start gap-3">
               <Mail size={16} className="mt-1 text-[#D05030]" />
-              <a href={`mailto:${SITE.email}`} className="hover:text-white">{SITE.email}</a>
+              <a href={`mailto:${SITE.email}`} className="hover:text-[#D05030] transition-colors">{SITE.email}</a>
             </li>
             <li className="flex items-start gap-3">
               <MapPin size={16} className="mt-1 text-[#D05030]" />
@@ -83,9 +89,9 @@ export const Footer = () => {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-mp py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-white/55">
-          <p>© {new Date().getFullYear()} MP Industries®. All rights reserved.</p>
-          <p>Registered manufacturer • Ahmedabad, India</p>
+        <div className="container-mp py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-white/50">
+          <p>© {new Date().getFullYear()} MP Industries®. All rights reserved. <span className="text-white/35">·</span> Registered Trademark ®</p>
+          <p>Since 2004 · Ahmedabad, India</p>
         </div>
       </div>
     </footer>

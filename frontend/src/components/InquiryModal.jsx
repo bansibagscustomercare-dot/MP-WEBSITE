@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { X } from "lucide-react";
+import { X, MessageCircle } from "lucide-react";
 import { buildWhatsAppInquiryURL } from "../data/site";
 
 export const InquiryModal = ({ open, product, onClose }) => {
@@ -12,7 +12,6 @@ export const InquiryModal = ({ open, product, onClose }) => {
   const closeBtnRef = useRef(null);
   const lastActiveRef = useRef(null);
 
-  // Reset form when product changes / modal opens
   useEffect(() => {
     if (open) {
       setName("");
@@ -20,19 +19,15 @@ export const InquiryModal = ({ open, product, onClose }) => {
       setCustomPart(false);
       setErrors({});
       lastActiveRef.current = document.activeElement;
-      // Defer focus to allow render
       setTimeout(() => firstFieldRef.current?.focus(), 30);
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
       lastActiveRef.current?.focus?.();
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [open, product]);
 
-  // ESC + focus trap
   useEffect(() => {
     if (!open) return;
     const handler = (e) => {
@@ -47,13 +42,8 @@ export const InquiryModal = ({ open, product, onClose }) => {
         const list = Array.from(focusables).filter((el) => !el.disabled);
         const first = list[0];
         const last = list[list.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     };
     document.addEventListener("keydown", handler);
@@ -101,14 +91,20 @@ export const InquiryModal = ({ open, product, onClose }) => {
       />
       <div
         ref={dialogRef}
-        className="relative w-full sm:max-w-md bg-white rounded-t-2xl sm:rounded-xl shadow-2xl animate-modal-in"
+        className="relative w-full sm:max-w-md bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl animate-modal-in p-7 sm:p-8"
       >
-        <div className="flex items-start justify-between gap-4 px-6 pt-6 pb-3">
+        <div className="flex items-start justify-between gap-4">
           <div>
-            <div className="eyebrow">Send Inquiry</div>
+            <div
+              className="text-[11px] font-bold uppercase tracking-[0.1em]"
+              style={{ color: "#3D3D3D" }}
+            >
+              Send Inquiry
+            </div>
             <h2
               id="inquiry-modal-title"
-              className="mt-1 font-display font-bold text-2xl tracking-tight text-ink"
+              className="mt-1 font-display font-bold text-[22px] tracking-tight"
+              style={{ color: "#D05030" }}
             >
               {product.name}
             </h2>
@@ -125,14 +121,14 @@ export const InquiryModal = ({ open, product, onClose }) => {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="px-6 pb-6 pt-2" noValidate>
-          <p className="text-[14px] text-graphite mb-4">
+        <form onSubmit={handleSubmit} className="mt-5" noValidate>
+          <p className="text-[14px] mb-5" style={{ color: "#3D3D3D" }}>
             Share your details — we'll continue the conversation on WhatsApp.
           </p>
 
-          <label className="block mb-3">
-            <span className="block text-[13px] font-semibold text-ink mb-1.5">
-              Your Name <span className="text-[#D05030]">*</span>
+          <label className="block mb-3.5">
+            <span className="block text-[13px] font-semibold mb-1.5" style={{ color: "#1A1A1A" }}>
+              Your Name <span style={{ color: "#D05030" }}>*</span>
             </span>
             <input
               ref={firstFieldRef}
@@ -142,7 +138,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
               placeholder="e.g. Rakesh Patel"
               autoComplete="name"
               data-testid="inquiry-name-input"
-              className={`w-full h-11 px-3.5 rounded-md border bg-white text-[15px] outline-none transition-colors focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15 ${
+              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15 ${
                 errors.name ? "border-red-500" : "border-hairline"
               }`}
             />
@@ -153,9 +149,9 @@ export const InquiryModal = ({ open, product, onClose }) => {
             )}
           </label>
 
-          <label className="block mb-3">
-            <span className="block text-[13px] font-semibold text-ink mb-1.5">
-              Phone Number <span className="text-[#D05030]">*</span>
+          <label className="block mb-3.5">
+            <span className="block text-[13px] font-semibold mb-1.5" style={{ color: "#1A1A1A" }}>
+              Phone Number <span style={{ color: "#D05030" }}>*</span>
             </span>
             <input
               type="tel"
@@ -165,7 +161,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
               autoComplete="tel"
               inputMode="tel"
               data-testid="inquiry-phone-input"
-              className={`w-full h-11 px-3.5 rounded-md border bg-white text-[15px] outline-none transition-colors focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15 ${
+              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15 ${
                 errors.phone ? "border-red-500" : "border-hairline"
               }`}
             />
@@ -184,19 +180,23 @@ export const InquiryModal = ({ open, product, onClose }) => {
               className="mt-1 w-4 h-4 accent-[#D05030]"
               data-testid="inquiry-custom-checkbox"
             />
-            <span className="text-[14px] text-ink">
+            <span className="text-[14px]" style={{ color: "#1A1A1A" }}>
               I need a custom part / special specification
             </span>
           </label>
 
           <button
             type="submit"
-            className="btn-primary w-full"
+            className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-lg text-white font-semibold text-[15px] transition-all hover:-translate-y-0.5"
+            style={{ backgroundColor: "#D05030" }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#B8402A")}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#D05030")}
             data-testid="inquiry-submit-btn"
           >
+            <MessageCircle size={18} />
             Send on WhatsApp
           </button>
-          <p className="text-[12px] text-graphite/80 mt-3 text-center">
+          <p className="text-[12px] mt-3 text-center" style={{ color: "#3D3D3D" }}>
             By submitting, you'll be redirected to WhatsApp with a pre-filled message.
           </p>
         </form>

@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, Factory, Users, Globe2, BadgeCheck } from "lucide-react";
 import SEO from "../components/SEO";
 import ScrollReveal from "../components/ScrollReveal";
-import { SITE } from "../data/site";
+
+const stats = [
+  { value: "20+", label: "Years in Business" },
+  { value: "69+", label: "Products" },
+  { value: "Pan-India", label: "Supply Network" },
+  { value: "3 Continents", label: "Export Footprint" },
+];
 
 const About = () => {
   return (
@@ -15,45 +21,64 @@ const About = () => {
         path="/about"
       />
 
-      {/* ── Page header ─────────────────────────────────────────────── */}
-      <header className="bg-white border-b border-hairline">
-        <div className="container-mp pt-14 pb-10 md:pt-20 md:pb-14">
-          <div className="eyebrow">About</div>
-          <h1 className="h1-section mt-2">Two decades of building the parts that build India.</h1>
-          <p className="lead mt-4 max-w-3xl">
-            MP Industries is a registered manufacturer of concrete mixer machine components — founded in 2004,
-            relaunched in 2017, and trusted by mixer manufacturers, OEM suppliers, contractors and dealers across three continents.
-          </p>
-        </div>
-      </header>
-
-      {/* ── Our Story ───────────────────────────────────────────────── */}
-      <section className="bg-white">
-        <div className="container-mp py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <ScrollReveal className="lg:col-span-5">
-            <div className="eyebrow">Our Story</div>
-            <h2 className="h2-section mt-2">Established 2004. Relaunched 2017.</h2>
+      {/* ── Hero / split intro ──────────────────────────────────────── */}
+      <section className="bg-cream">
+        <div className="container-mp section grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <ScrollReveal>
+            <div className="eyebrow">About MP Industries</div>
+            <h1 className="h1-hero mt-6">
+              20 Years of Precision.<br />
+              <span style={{ color: "#D05030" }}>Trusted Across India.</span>
+            </h1>
+            <div className="mt-6 space-y-4 text-[16px] leading-relaxed max-w-[520px]" style={{ color: "#3D3D3D" }}>
+              <p>
+                MP Industries was established in 2004. With over 20 years of experience
+                in manufacturing precision parts for cement concrete mixer machines, we
+                have built a reputation for quality, reliability, and consistency.
+              </p>
+              <p>
+                In 2017, the business was acquired and relaunched with renewed focus on
+                quality standards and expanding our reach — first across India, and
+                then to international markets in Africa and the Middle East.
+              </p>
+            </div>
           </ScrollReveal>
-          <ScrollReveal className="lg:col-span-7 space-y-5 text-[16.5px] text-graphite leading-relaxed">
-            <p>
-              MP Industries was established in 2004. With over 20 years of experience in manufacturing
-              precision parts for cement concrete mixer machines, we have built a reputation for
-              quality, reliability, and consistency.
-            </p>
-            <p>
-              In 2017, the business was acquired and relaunched with renewed focus on quality standards
-              and expanding our reach — first across India, and then to international markets in Africa and the Middle East.
-            </p>
+
+          <ScrollReveal delay={100} className="grid grid-cols-2 gap-4">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="card-mp p-6 text-center flex flex-col justify-center min-h-[140px]"
+                data-testid={`about-stat-${s.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+              >
+                <div
+                  className="font-display font-bold leading-none"
+                  style={{
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                    color: "#D05030",
+                    fontSize: "clamp(1.75rem, 3.4vw, 2.5rem)",
+                  }}
+                >
+                  {s.value}
+                </div>
+                <div
+                  className="mt-3 text-[11px] uppercase font-bold tracking-[0.12em]"
+                  style={{ color: "#3D3D3D" }}
+                >
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </ScrollReveal>
         </div>
       </section>
 
       {/* ── What We Make ────────────────────────────────────────────── */}
-      <section className="bg-surface">
-        <div className="container-mp py-16 md:py-20">
+      <section className="bg-white-section">
+        <div className="container-mp section">
           <ScrollReveal>
             <div className="eyebrow">What We Make</div>
-            <h2 className="h2-section mt-2">69+ precision-engineered components.</h2>
+            <h2 className="h1-section mt-3">69+ precision-engineered components.</h2>
             <p className="lead mt-4 max-w-3xl">
               From drums and yokes to gears, bearings, clutch systems, shafts, and pulleys —
               covering virtually every mechanical need of a concrete mixer machine.
@@ -62,17 +87,11 @@ const About = () => {
 
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "Drums & Yokes",
-              "Gears & Rings",
-              "Shafts",
-              "Bearings",
-              "Pedestals",
-              "Pulleys",
-              "Rollers",
-              "Brakes & Clutch",
+              "Drums & Yokes", "Gears & Rings", "Shafts", "Bearings",
+              "Pedestals", "Pulleys", "Rollers", "Brakes & Clutch",
             ].map((item, i) => (
               <ScrollReveal key={item} delay={i * 50} className="card-mp p-5 text-center bg-white">
-                <div className="font-display font-bold text-lg text-ink">{item}</div>
+                <div className="font-display font-semibold text-[18px]" style={{ color: "#1A1A1A" }}>{item}</div>
               </ScrollReveal>
             ))}
           </div>
@@ -80,11 +99,11 @@ const About = () => {
       </section>
 
       {/* ── Who We Serve ────────────────────────────────────────────── */}
-      <section className="bg-white">
-        <div className="container-mp py-16 md:py-20">
+      <section className="bg-cream">
+        <div className="container-mp section">
           <ScrollReveal>
             <div className="eyebrow">Who We Serve</div>
-            <h2 className="h2-section mt-2">Manufacturers, OEMs, contractors & dealers.</h2>
+            <h2 className="h1-section mt-3">Manufacturers, OEMs, contractors & dealers.</h2>
           </ScrollReveal>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
@@ -98,8 +117,8 @@ const About = () => {
                   <Icon size={22} color="#D05030" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-xl text-ink">{title}</h3>
-                  <p className="mt-1.5 text-[15px] text-graphite leading-relaxed">{body}</p>
+                  <h3 className="font-display font-semibold text-[20px]" style={{ color: "#1A1A1A" }}>{title}</h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed" style={{ color: "#3D3D3D" }}>{body}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -108,11 +127,11 @@ const About = () => {
       </section>
 
       {/* ── Our Reach ───────────────────────────────────────────────── */}
-      <section className="bg-ink text-white">
-        <div className="container-mp py-16 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <section className="bg-[#1A1A1A] text-white">
+        <div className="container-mp section grid grid-cols-1 lg:grid-cols-12 gap-10">
           <ScrollReveal className="lg:col-span-5">
             <div className="eyebrow">Our Reach</div>
-            <h2 className="h2-section text-white mt-2">Pan-India + Active Export.</h2>
+            <h2 className="h1-section text-white mt-3" style={{ color: "#fff" }}>Pan-India + Active Export.</h2>
           </ScrollReveal>
           <ScrollReveal className="lg:col-span-7 space-y-5 text-[16.5px] text-white/80 leading-relaxed">
             <p>Pan-India supply network covering every major construction equipment hub.</p>
@@ -123,11 +142,11 @@ const About = () => {
       </section>
 
       {/* ── Why Trust MP ────────────────────────────────────────────── */}
-      <section className="bg-white">
-        <div className="container-mp py-16 md:py-20">
+      <section className="bg-cream">
+        <div className="container-mp section">
           <ScrollReveal className="text-center max-w-2xl mx-auto">
-            <div className="eyebrow">Why Trust MP</div>
-            <h2 className="h2-section mt-2">Built on the basics that matter.</h2>
+            <div className="eyebrow justify-center" style={{ display: "inline-flex" }}>Why Trust MP</div>
+            <h2 className="h1-section mt-3">Built on the basics that matter.</h2>
           </ScrollReveal>
 
           <div className="mt-10 grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -140,7 +159,7 @@ const About = () => {
             ].map(({ icon: Icon, label }, i) => (
               <ScrollReveal key={label} delay={i * 60} className="card-mp p-5 text-center">
                 <Icon size={26} color="#D05030" className="mx-auto" />
-                <div className="mt-3 text-[14px] font-semibold text-ink leading-snug">{label}</div>
+                <div className="mt-3 text-[14px] font-semibold leading-snug" style={{ color: "#1A1A1A" }}>{label}</div>
               </ScrollReveal>
             ))}
           </div>

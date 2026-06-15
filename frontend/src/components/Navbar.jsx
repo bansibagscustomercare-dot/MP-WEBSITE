@@ -22,22 +22,17 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
+  useEffect(() => { setOpen(false); }, [location.pathname]);
 
   useEffect(() => {
-    if (open) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   return (
     <header
       className={`sticky top-0 z-40 w-full bg-white transition-shadow ${
-        scrolled ? "shadow-[0_1px_0_0_#E0E0E0,0_8px_24px_-18px_rgba(0,0,0,0.18)]" : ""
+        scrolled ? "shadow-[0_2px_12px_rgba(0,0,0,0.08)]" : ""
       }`}
       data-testid="navbar"
     >
@@ -50,7 +45,7 @@ export const Navbar = () => {
           <Logo />
         </Link>
 
-        {/* Desktop */}
+        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-1">
           {links.map((l) => (
             <li key={l.to}>
@@ -59,7 +54,7 @@ export const Navbar = () => {
                 end={l.to === "/"}
                 data-testid={`nav-link-${l.label.toLowerCase()}`}
                 className={({ isActive }) =>
-                  `relative inline-flex items-center px-4 py-2 rounded-md text-[15px] font-medium transition-colors ${
+                  `relative inline-flex items-center px-4 py-2 text-[15px] font-medium transition-colors ${
                     isActive ? "text-[#D05030]" : "text-ink hover:text-[#D05030]"
                   }`
                 }
@@ -68,7 +63,7 @@ export const Navbar = () => {
                   <>
                     {l.label}
                     <span
-                      className={`absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full transition-all ${
+                      className={`absolute left-4 right-4 -bottom-1 h-[2px] rounded-full transition-all ${
                         isActive ? "bg-[#D05030] opacity-100" : "opacity-0"
                       }`}
                     />
@@ -77,9 +72,9 @@ export const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          <li className="ml-2">
-            <Link to="/contact" className="btn-primary" data-testid="nav-cta-contact">
-              Get Quote
+          <li className="ml-4">
+            <Link to="/contact" className="btn-outline-brand" data-testid="nav-cta-contact">
+              Get a Quote
             </Link>
           </li>
         </ul>
@@ -124,8 +119,8 @@ export const Navbar = () => {
             </li>
           ))}
           <li className="mt-2">
-            <Link to="/contact" className="btn-primary w-full" data-testid="mobile-cta-contact">
-              Get Quote
+            <Link to="/contact" className="btn-outline-brand w-full justify-center" data-testid="mobile-cta-contact">
+              Get a Quote
             </Link>
           </li>
         </ul>

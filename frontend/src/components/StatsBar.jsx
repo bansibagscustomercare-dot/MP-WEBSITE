@@ -10,10 +10,7 @@ const CountUp = ({ to = 100, duration = 1500, suffix = "", start = false }) => {
     if (!start || startedRef.current) return;
     startedRef.current = true;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      setValue(to);
-      return;
-    }
+    if (reduced) { setValue(to); return; }
     let raf;
     const startTs = performance.now();
     const tick = (now) => {
@@ -66,26 +63,37 @@ export const StatsBar = () => {
   return (
     <section
       ref={ref}
-      className="bg-[#D05030] text-white"
+      className="text-white"
+      style={{ backgroundColor: "#D05030", padding: "64px 0" }}
       aria-label="Company stats"
       data-testid="stats-bar"
     >
-      <div className="container-mp py-12 md:py-14">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">
+      <div className="container-mp">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6">
           {stats.map((s, i) => (
             <div
               key={s.id}
-              className={`relative ${i !== 0 ? "lg:border-l lg:border-white/15 lg:pl-8" : ""}`}
+              className={`${i !== 0 ? "lg:border-l lg:border-white/25 lg:pl-8" : ""}`}
               data-testid={`stat-${s.id}`}
             >
-              <div className="font-display font-bold text-[44px] sm:text-[54px] leading-none tracking-tight">
+              <div
+                className="font-display font-bold leading-none tracking-tight"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+                  letterSpacing: "-0.01em",
+                }}
+              >
                 {typeof s.value === "number" ? (
                   <CountUp to={s.value} suffix={s.suffix} start={inView} />
                 ) : (
                   s.text
                 )}
               </div>
-              <div className="mt-2 text-[13.5px] uppercase tracking-[0.16em] font-semibold text-white/85">
+              <div
+                className="mt-3 text-[11px] uppercase font-bold tracking-[0.12em]"
+                style={{ color: "rgba(255,255,255,0.8)" }}
+              >
                 {s.label}
               </div>
             </div>
