@@ -190,6 +190,80 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ── WORKSHOP STRIP ──────────────────────────────────────────── */}
+      <ScrollReveal
+        as="section"
+        data-testid="workshop-strip"
+        style={{
+          position: "relative",
+          width: "100%",
+          minHeight: 280,
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)), url('/workshop.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "48px 16px",
+        }}
+      >
+        <style>{`
+          @media (min-width: 768px) {
+            [data-testid="workshop-strip"] { min-height: 420px !important; }
+          }
+        `}</style>
+        <div className="text-center max-w-2xl">
+          <div
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 11,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              color: "rgba(255,255,255,0.7)",
+            }}
+          >
+            AHMEDABAD, INDIA · SINCE 1990
+          </div>
+          <h2
+            className="mt-3"
+            style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontWeight: 700,
+              color: "#ffffff",
+              fontSize: "clamp(26px, 3.4vw, 38px)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.005em",
+            }}
+          >
+            Precision engineered. Built to last.
+          </h2>
+          <div
+            style={{
+              width: 48,
+              height: 2,
+              backgroundColor: "#C04028",
+              margin: "20px auto",
+            }}
+            aria-hidden="true"
+          />
+          <p
+            className="mx-auto"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 15,
+              color: "rgba(255,255,255,0.75)",
+              maxWidth: 520,
+              lineHeight: 1.65,
+            }}
+          >
+            Delivered to manufacturers, dealers and contractors across India, Africa and the Middle East.
+          </p>
+        </div>
+      </ScrollReveal>
+
       {/* ── WHY MP ───────────────────────────────────────────────────── */}
       <section className="bg-cream" data-testid="why-mp-section">
         <div className="container-mp section grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
