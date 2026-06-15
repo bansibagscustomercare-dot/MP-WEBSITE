@@ -16,7 +16,7 @@ export const ProductCard = ({ product, onInquire }) => {
     >
       <div className="product-ph aspect-square flex items-center justify-center relative">
         <svg width="74" height="54" viewBox="0 0 64 46" aria-hidden="true" style={{ opacity: 0.22 }}>
-          <ellipse cx="32" cy="23" rx="28" ry="19" fill="#D05030" />
+          <ellipse cx="32" cy="23" rx="28" ry="19" fill="#C04028" />
           <text
             x="32"
             y="30"
@@ -34,7 +34,7 @@ export const ProductCard = ({ product, onInquire }) => {
       <div className="pt-4 pb-1 flex flex-col gap-1.5 flex-1">
         <div
           className="text-[10px] font-bold uppercase tracking-[0.1em]"
-          style={{ color: "#D05030" }}
+          style={{ color: "#C04028" }}
         >
           {categoryLabel(product.category)}
         </div>
@@ -51,9 +51,9 @@ export const ProductCard = ({ product, onInquire }) => {
           type="button"
           onClick={() => onInquire(product)}
           className="mt-3 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-md text-white font-semibold text-[14px] transition-all hover:-translate-y-0.5"
-          style={{ backgroundColor: "#D05030", fontFamily: "Inter, sans-serif" }}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#B8402A")}
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#D05030")}
+          style={{ backgroundColor: "#C04028", fontFamily: "Inter, sans-serif" }}
+          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#A03520")}
+          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#C04028")}
           data-testid={`${handleId}-inquire-btn`}
         >
           Inquire Now

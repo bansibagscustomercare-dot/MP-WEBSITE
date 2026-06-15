@@ -68,7 +68,7 @@ const About = () => {
             <div className="eyebrow">Our Story</div>
             <h2 className="h1-section mt-3">
               Three decades of building<br />
-              <span style={{ color: "#D05030" }}>India's mixer machines.</span>
+              <span style={{ color: "#C04028" }}>India's mixer machines.</span>
             </h2>
             <div
               className="mt-5 space-y-3 max-w-[520px]"
@@ -98,7 +98,7 @@ const About = () => {
                   style={{
                     fontFamily: "'Playfair Display', Georgia, serif",
                     fontWeight: 700,
-                    color: "#D05030",
+                    color: "#C04028",
                     fontSize: 28,
                     lineHeight: 1,
                   }}
@@ -177,7 +177,7 @@ const About = () => {
             ].map(({ icon: Icon, title, body }, i) => (
               <ScrollReveal key={title} delay={i * 50} className="card-mp p-5 flex gap-3.5">
                 <div className="shrink-0 w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
-                  <Icon size={18} color="#D05030" />
+                  <Icon size={18} color="#C04028" />
                 </div>
                 <div>
                   <h3 style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 18, color: "#1A1A1A" }}>{title}</h3>
@@ -206,7 +206,7 @@ const About = () => {
               { icon: Users, label: "Direct Manufacturer" },
             ].map(({ icon: Icon, label }, i) => (
               <ScrollReveal key={label} delay={i * 50} className="card-mp p-4 text-center">
-                <Icon size={22} color="#D05030" className="mx-auto" />
+                <Icon size={22} color="#C04028" className="mx-auto" />
                 <div className="mt-2" style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 13, color: "#1A1A1A", lineHeight: 1.4 }}>
                   {label}
                 </div>

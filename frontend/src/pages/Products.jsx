@@ -57,7 +57,7 @@ const Products = () => {
               placeholder="Search products... e.g. Bevel Gear, Drum, Pulley"
               data-testid="products-search-input"
               aria-label="Search products"
-              className="w-full h-11 pl-11 pr-11 rounded-lg border bg-white text-[14px] outline-none focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15"
+              className="w-full h-11 pl-11 pr-11 rounded-lg border bg-white text-[14px] outline-none focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15"
               style={{ borderColor: "#E8E8E8" }}
             />
             {query && (

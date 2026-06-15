@@ -18,18 +18,18 @@ export const CategoryCard = ({ icon: Icon, title, description, tags = [], to = "
           className="w-12 h-12 rounded-md flex items-center justify-center"
           style={{ backgroundColor: "#FBF0ED" }}
         >
-          <Icon size={22} color="#D05030" />
+          <Icon size={22} color="#C04028" />
         </div>
         <ArrowRight
           size={20}
-          className="text-graphite/40 group-hover:text-[#D05030] transition-colors mt-1"
+          className="text-graphite/40 group-hover:text-[#C04028] transition-colors mt-1"
         />
       </div>
 
       <div>
         <h3
           className="font-display font-semibold text-[22px] leading-tight"
-          style={{ color: "#D05030" }}
+          style={{ color: "#C04028" }}
         >
           {title}
         </h3>

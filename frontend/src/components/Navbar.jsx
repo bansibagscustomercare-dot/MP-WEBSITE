@@ -55,7 +55,7 @@ export const Navbar = () => {
                 data-testid={`nav-link-${l.label.toLowerCase()}`}
                 className={({ isActive }) =>
                   `relative inline-flex items-center px-4 py-2 text-[15px] font-medium transition-colors ${
-                    isActive ? "text-[#D05030]" : "text-ink hover:text-[#D05030]"
+                    isActive ? "text-[#C04028]" : "text-ink hover:text-[#C04028]"
                   }`
                 }
               >
@@ -64,7 +64,7 @@ export const Navbar = () => {
                     {l.label}
                     <span
                       className={`absolute left-4 right-4 -bottom-1 h-[2px] rounded-full transition-all ${
-                        isActive ? "bg-[#D05030] opacity-100" : "opacity-0"
+                        isActive ? "bg-[#C04028] opacity-100" : "opacity-0"
                       }`}
                     />
                   </>
@@ -110,7 +110,7 @@ export const Navbar = () => {
                 data-testid={`mobile-nav-link-${l.label.toLowerCase()}`}
                 className={({ isActive }) =>
                   `block px-3 py-3 rounded-md text-[16px] font-medium ${
-                    isActive ? "text-[#D05030] bg-[#FBF0ED]" : "text-ink"
+                    isActive ? "text-[#C04028] bg-[#FBF0ED]" : "text-ink"
                   }`
                 }
               >

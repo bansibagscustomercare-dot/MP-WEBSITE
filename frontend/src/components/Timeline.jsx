@@ -23,7 +23,7 @@ export const Timeline = ({ items = [] }) => {
             style={{
               top: LINE_OFFSET,
               height: 2,
-              backgroundColor: "#D05030",
+              backgroundColor: "#C04028",
             }}
             aria-hidden="true"
           />
@@ -49,7 +49,7 @@ export const Timeline = ({ items = [] }) => {
                       width: 14,
                       height: 14,
                       borderRadius: 9999,
-                      backgroundColor: "#D05030",
+                      backgroundColor: "#C04028",
                       boxShadow: "0 0 0 4px #ffffff",
                       transform: "translate(-50%, -50%)",
                       zIndex: 2,
@@ -85,7 +85,7 @@ export const Timeline = ({ items = [] }) => {
       <div className="md:hidden relative pl-6">
         <div
           className="absolute left-2 top-1 bottom-1"
-          style={{ width: 2, backgroundColor: "#D05030" }}
+          style={{ width: 2, backgroundColor: "#C04028" }}
           aria-hidden="true"
         />
         <ul className="space-y-8">
@@ -97,7 +97,7 @@ export const Timeline = ({ items = [] }) => {
                   width: 12,
                   height: 12,
                   borderRadius: 9999,
-                  backgroundColor: "#D05030",
+                  backgroundColor: "#C04028",
                   boxShadow: "0 0 0 4px #ffffff",
                 }}
               />
@@ -127,8 +127,8 @@ const pillStyle = {
   textTransform: "uppercase",
   letterSpacing: "0.06em",
   backgroundColor: "#FBF0ED",
-  color: "#D05030",
-  border: "1px solid #D05030",
+  color: "#C04028",
+  border: "1px solid #C04028",
   borderRadius: 9999,
   padding: "2px 8px",
   display: "inline-block",
@@ -138,7 +138,7 @@ const yearStyle = {
   fontFamily: "'Playfair Display', Georgia, serif",
   fontWeight: 700,
   fontSize: 28,
-  color: "#D05030",
+  color: "#C04028",
   lineHeight: 1,
 };
 const titleStyle = {

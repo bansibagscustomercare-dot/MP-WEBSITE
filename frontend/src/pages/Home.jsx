@@ -123,7 +123,7 @@ const Home = () => {
             <div className="eyebrow" data-testid="hero-eyebrow">AHMEDABAD'S CONCRETE MIXER PARTS EXPERTS</div>
             <h1 className="h1-hero mt-5" data-testid="hero-headline">
               Built for the machines<br />
-              <span style={{ color: "#D05030" }}>that build India.</span>
+              <span style={{ color: "#C04028" }}>that build India.</span>
             </h1>
             <p
               className="mt-4 max-w-[480px]"
@@ -196,7 +196,7 @@ const Home = () => {
           <ScrollReveal className="flex">
             <div
               className="w-full p-8 flex flex-col justify-center"
-              style={{ backgroundColor: "#D05030", borderRadius: 12 }}
+              style={{ backgroundColor: "#C04028", borderRadius: 12 }}
             >
               <div
                 style={{
@@ -232,10 +232,10 @@ const Home = () => {
                 key={row.title}
                 delay={i * 60}
                 className="border-l-[3px] pl-4 mb-6 last:mb-0"
-                style={{ borderColor: "#D05030" }}
+                style={{ borderColor: "#C04028" }}
               >
                 <div className="flex items-center gap-2.5">
-                  <row.icon size={16} color="#D05030" />
+                  <row.icon size={16} color="#C04028" />
                   <h3 style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 18, color: "#1A1A1A" }}>
                     {row.title}
                   </h3>
@@ -272,7 +272,7 @@ const Home = () => {
               { title: "Middle East", body: "Exporting to mixer manufacturers and traders across the Gulf region.", icon: Wrench },
             ].map((c, i) => (
               <ScrollReveal key={c.title} delay={i * 70} className="card-mp p-6">
-                <c.icon size={22} color="#D05030" />
+                <c.icon size={22} color="#C04028" />
                 <h3 className="mt-3" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 22, color: "#1A1A1A" }}>{c.title}</h3>
                 <p className="mt-1.5" style={{ color: "#3D3D3D", fontSize: 14, lineHeight: 1.6 }}>{c.body}</p>
               </ScrollReveal>

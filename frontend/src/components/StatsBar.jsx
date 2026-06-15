@@ -64,7 +64,7 @@ export const StatsBar = () => {
     <section
       ref={ref}
       className="text-white"
-      style={{ backgroundColor: "#D05030" }}
+      style={{ backgroundColor: "#C04028" }}
       aria-label="Company stats"
       data-testid="stats-bar"
     >

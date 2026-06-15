@@ -10,7 +10,7 @@ export const Footer = () => {
         <div className="md:col-span-5">
           <div className="flex items-center gap-3">
             <svg width="44" height="32" viewBox="0 0 64 46" aria-hidden="true">
-              <ellipse cx="32" cy="23" rx="30" ry="21" fill="#D05030" />
+              <ellipse cx="32" cy="23" rx="30" ry="21" fill="#C04028" />
               <text
                 x="32"
                 y="30"
@@ -56,7 +56,7 @@ export const Footer = () => {
               <li key={l.to}>
                 <Link
                   to={l.to}
-                  className="text-[15px] text-white/75 hover:text-[#D05030] transition-colors"
+                  className="text-[15px] text-white/75 hover:text-[#C04028] transition-colors"
                   data-testid={`footer-link-${l.label.toLowerCase().replace(/ /g, "-")}`}
                 >
                   {l.label}
@@ -70,18 +70,18 @@ export const Footer = () => {
           <h4 className="text-[11px] uppercase font-bold tracking-[0.12em] text-white/55">Contact</h4>
           <ul className="mt-4 space-y-3 text-[15px] text-white/75">
             <li className="flex items-start gap-3">
-              <Phone size={16} className="mt-1 text-[#D05030]" />
+              <Phone size={16} className="mt-1 text-[#C04028]" />
               <div>
-                <a href={`tel:${SITE.phonePrimary.replace(/\s/g, "")}`} className="block hover:text-[#D05030] transition-colors">{SITE.phonePrimary}</a>
-                <a href={`tel:${SITE.phoneSecondary.replace(/\s/g, "")}`} className="block hover:text-[#D05030] transition-colors">{SITE.phoneSecondary}</a>
+                <a href={`tel:${SITE.phonePrimary.replace(/\s/g, "")}`} className="block hover:text-[#C04028] transition-colors">{SITE.phonePrimary}</a>
+                <a href={`tel:${SITE.phoneSecondary.replace(/\s/g, "")}`} className="block hover:text-[#C04028] transition-colors">{SITE.phoneSecondary}</a>
               </div>
             </li>
             <li className="flex items-start gap-3">
-              <Mail size={16} className="mt-1 text-[#D05030]" />
-              <a href={`mailto:${SITE.email}`} className="hover:text-[#D05030] transition-colors">{SITE.email}</a>
+              <Mail size={16} className="mt-1 text-[#C04028]" />
+              <a href={`mailto:${SITE.email}`} className="hover:text-[#C04028] transition-colors">{SITE.email}</a>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin size={16} className="mt-1 text-[#D05030]" />
+              <MapPin size={16} className="mt-1 text-[#C04028]" />
               <span>{SITE.addressShort}</span>
             </li>
           </ul>

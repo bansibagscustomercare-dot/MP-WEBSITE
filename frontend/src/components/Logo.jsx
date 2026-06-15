@@ -13,7 +13,7 @@ export const Logo = ({ size = 38, withText = true, textColor = "#1A1A1A" }) => {
         <defs>
           <radialGradient id="mp-grad" cx="50%" cy="35%" r="65%">
             <stop offset="0%" stopColor="#E36645" />
-            <stop offset="60%" stopColor="#D05030" />
+            <stop offset="60%" stopColor="#C04028" />
             <stop offset="100%" stopColor="#A8381F" />
           </radialGradient>
         </defs>

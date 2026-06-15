@@ -134,7 +134,7 @@ export const WorldMap = () => {
           const [cx, cy] = pos;
           return (
             <g key={region} pointerEvents="none">
-              <circle cx={cx} cy={cy} r="4" fill="#FFFFFF" stroke="#D05030" strokeWidth="1.5" />
+              <circle cx={cx} cy={cy} r="4" fill="#FFFFFF" stroke="#C04028" strokeWidth="1.5" />
               <text
                 x={cx + 10}
                 y={cy + 4}
@@ -142,7 +142,7 @@ export const WorldMap = () => {
                 fontSize="12"
                 fontWeight="700"
                 fill="#FFFFFF"
-                stroke="#D05030"
+                stroke="#C04028"
                 strokeWidth="3"
                 paintOrder="stroke"
                 style={{ paintOrder: "stroke" }}

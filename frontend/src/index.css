@@ -4,8 +4,8 @@
 
 /* ── MP Industries — Minimal Editorial design system ────────────────── */
 :root {
-  --brand: #D05030;
-  --brand-dark: #B8402A;
+  --brand: #C04028;
+  --brand-dark: #A03520;
   --brand-tint: #FBF0ED;
   --ink: #1A1A1A;
   --graphite: #3D3D3D;
@@ -342,11 +342,11 @@ body {
   transition: fill 0.18s ease;
 }
 .wm-country.wm-highlight {
-  fill: #D05030;
+  fill: #C04028;
   stroke: #FFFFFF;
   stroke-width: 0.8;
   cursor: pointer;
 }
 .wm-country.wm-highlight:hover {
-  fill: #B8402A;
+  fill: #A03520;
 }

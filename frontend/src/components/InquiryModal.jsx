@@ -104,7 +104,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
             <h2
               id="inquiry-modal-title"
               className="mt-1 font-display font-bold text-[22px] tracking-tight"
-              style={{ color: "#D05030" }}
+              style={{ color: "#C04028" }}
             >
               {product.name}
             </h2>
@@ -128,7 +128,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
 
           <label className="block mb-3.5">
             <span className="block text-[13px] font-semibold mb-1.5" style={{ color: "#1A1A1A" }}>
-              Your Name <span style={{ color: "#D05030" }}>*</span>
+              Your Name <span style={{ color: "#C04028" }}>*</span>
             </span>
             <input
               ref={firstFieldRef}
@@ -138,7 +138,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
               placeholder="e.g. Rakesh Patel"
               autoComplete="name"
               data-testid="inquiry-name-input"
-              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15 ${
+              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15 ${
                 errors.name ? "border-red-500" : "border-hairline"
               }`}
             />
@@ -151,7 +151,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
 
           <label className="block mb-3.5">
             <span className="block text-[13px] font-semibold mb-1.5" style={{ color: "#1A1A1A" }}>
-              Phone Number <span style={{ color: "#D05030" }}>*</span>
+              Phone Number <span style={{ color: "#C04028" }}>*</span>
             </span>
             <input
               type="tel"
@@ -161,7 +161,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
               autoComplete="tel"
               inputMode="tel"
               data-testid="inquiry-phone-input"
-              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#D05030] focus:ring-2 focus:ring-[#D05030]/15 ${
+              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15 ${
                 errors.phone ? "border-red-500" : "border-hairline"
               }`}
             />
@@ -177,7 +177,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
               type="checkbox"
               checked={customPart}
               onChange={(e) => setCustomPart(e.target.checked)}
-              className="mt-1 w-4 h-4 accent-[#D05030]"
+              className="mt-1 w-4 h-4 accent-[#C04028]"
               data-testid="inquiry-custom-checkbox"
             />
             <span className="text-[14px]" style={{ color: "#1A1A1A" }}>
@@ -188,9 +188,9 @@ export const InquiryModal = ({ open, product, onClose }) => {
           <button
             type="submit"
             className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-lg text-white font-semibold text-[15px] transition-all hover:-translate-y-0.5"
-            style={{ backgroundColor: "#D05030" }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#B8402A")}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#D05030")}
+            style={{ backgroundColor: "#C04028" }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#A03520")}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#C04028")}
             data-testid="inquiry-submit-btn"
           >
             <MessageCircle size={18} />

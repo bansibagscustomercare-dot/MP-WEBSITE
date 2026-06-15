@@ -28,7 +28,7 @@ const Contact = () => {
             <div className="card-mp p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
-                  <Phone size={18} color="#D05030" />
+                  <Phone size={18} color="#C04028" />
                 </div>
                 <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>
                   Call us directly
@@ -36,7 +36,7 @@ const Contact = () => {
               </div>
               <a
                 href={`tel:${SITE.phonePrimary.replace(/\s/g, "")}`}
-                className="block font-semibold hover:text-[#D05030] transition-colors"
+                className="block font-semibold hover:text-[#C04028] transition-colors"
                 style={{ fontSize: 16, color: "#1A1A1A" }}
                 data-testid="contact-phone-primary"
               >
@@ -44,7 +44,7 @@ const Contact = () => {
               </a>
               <a
                 href={`tel:${SITE.phoneSecondary.replace(/\s/g, "")}`}
-                className="block font-semibold hover:text-[#D05030] transition-colors mt-1"
+                className="block font-semibold hover:text-[#C04028] transition-colors mt-1"
                 style={{ fontSize: 16, color: "#1A1A1A" }}
                 data-testid="contact-phone-secondary"
               >
@@ -81,13 +81,13 @@ const Contact = () => {
             <div className="card-mp p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
-                  <Mail size={18} color="#D05030" />
+                  <Mail size={18} color="#C04028" />
                 </div>
                 <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>Email</h2>
               </div>
               <a
                 href={`mailto:${SITE.email}`}
-                className="font-semibold hover:text-[#D05030] transition-colors"
+                className="font-semibold hover:text-[#C04028] transition-colors"
                 style={{ fontSize: 16, color: "#1A1A1A" }}
                 data-testid="contact-email"
               >
@@ -98,7 +98,7 @@ const Contact = () => {
             <div className="card-mp p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
-                  <MapPin size={18} color="#D05030" />
+                  <MapPin size={18} color="#C04028" />
                 </div>
                 <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>Address</h2>
               </div>
