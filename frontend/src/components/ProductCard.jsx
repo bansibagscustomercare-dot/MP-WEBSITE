@@ -15,20 +15,11 @@ export const ProductCard = ({ product, onInquire }) => {
       data-testid={handleId}
     >
       <div className="product-ph aspect-square flex items-center justify-center relative">
-        <svg width="74" height="54" viewBox="0 0 64 46" aria-hidden="true" style={{ opacity: 0.22 }}>
-          <ellipse cx="32" cy="23" rx="28" ry="19" fill="#C04028" />
-          <text
-            x="32"
-            y="30"
-            textAnchor="middle"
-            fontFamily="'Playfair Display', Georgia, serif"
-            fontWeight="800"
-            fontSize="20"
-            fill="#FFFFFF"
-          >
-            MP
-          </text>
-        </svg>
+        <img
+          src="/logo.png"
+          alt="MP Industries logo"
+          style={{ width: "55%", height: "auto", objectFit: "contain", opacity: 0.15 }}
+        />
       </div>
 
       <div className="pt-4 pb-1 flex flex-col gap-1.5 flex-1">

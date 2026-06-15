@@ -12,6 +12,11 @@ const NotFound = () => (
     />
     <section className="bg-cream min-h-[70vh] flex items-center" data-testid="not-found-page">
       <div className="container-mp text-center py-16">
+        <img
+          src="/logo.png"
+          alt="MP Industries logo"
+          style={{ height: 64, width: "auto", objectFit: "contain", display: "block", margin: "0 auto 24px" }}
+        />
         <div
           style={{
             fontFamily: "'Playfair Display', Georgia, serif",

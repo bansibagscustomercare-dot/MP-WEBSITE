@@ -9,20 +9,11 @@ export const Footer = () => {
       <div className="container-mp py-16 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-5">
           <div className="flex items-center gap-3">
-            <svg width="44" height="32" viewBox="0 0 64 46" aria-hidden="true">
-              <ellipse cx="32" cy="23" rx="30" ry="21" fill="#C04028" />
-              <text
-                x="32"
-                y="30"
-                textAnchor="middle"
-                fontFamily="'Playfair Display', Georgia, serif"
-                fontWeight="800"
-                fontSize="22"
-                fill="#FFFFFF"
-              >
-                MP
-              </text>
-            </svg>
+            <img
+              src="/logo.png"
+              alt="MP Industries logo"
+              style={{ height: 48, width: "auto", objectFit: "contain", display: "block" }}
+            />
             <div>
               <div className="font-display font-bold text-[20px] tracking-tight">MP Industries</div>
               <div className="text-[10px] uppercase tracking-[0.16em] text-white/55 mt-1">Concrete Mixer Parts</div>
