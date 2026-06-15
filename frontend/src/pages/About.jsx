@@ -122,6 +122,77 @@ const About = () => {
         </div>
       </section>
 
+      {/* ── Full-width workshop strip ──────────────────────────────── */}
+      <ScrollReveal
+        as="section"
+        data-testid="about-workshop-strip"
+        style={{
+          position: "relative",
+          width: "100%",
+          minHeight: 260,
+          backgroundImage:
+            "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.35) 100%), url('/about-workshop.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <style>{`
+          @media (min-width: 768px) {
+            [data-testid="about-workshop-strip"] { min-height: 440px !important; }
+          }
+        `}</style>
+        <div className="container-mp" style={{ paddingTop: 48, paddingBottom: 48 }}>
+          <div style={{ maxWidth: "50%" }} className="max-md:!max-w-full">
+            <div
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 11,
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                color: "rgba(255,255,255,0.7)",
+              }}
+            >
+              AHMEDABAD, INDIA · EST. 1990
+            </div>
+            <h2
+              className="mt-3"
+              style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontWeight: 700,
+                color: "#ffffff",
+                fontSize: "clamp(24px, 3.2vw, 36px)",
+                lineHeight: 1.15,
+                letterSpacing: "-0.005em",
+              }}
+            >
+              Three decades of precision.<br />
+              One name you can trust.
+            </h2>
+            <div
+              style={{ width: 48, height: 2, backgroundColor: "#C04028", margin: "20px 0" }}
+              aria-hidden="true"
+            />
+            <p
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 15,
+                color: "rgba(255,255,255,0.75)",
+                maxWidth: 440,
+                lineHeight: 1.65,
+              }}
+            >
+              From a single workshop in Ahmedabad to a pan-India supply network and
+              international export — MP Industries has been building the parts that
+              keep India's construction moving.
+            </p>
+          </div>
+        </div>
+      </ScrollReveal>
+
       {/* ── Timeline ────────────────────────────────────────────────── */}
       <section className="bg-white-section">
         <div className="container-mp section">
@@ -136,6 +207,175 @@ const About = () => {
           <ScrollReveal className="mt-16 md:mt-20">
             <Timeline items={milestones} />
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── Leadership / Director messages ──────────────────────────── */}
+      <section className="bg-cream" data-testid="about-leadership">
+        <div className="container-mp section">
+          <ScrollReveal className="text-center max-w-2xl mx-auto mb-10">
+            <div className="eyebrow" style={{ display: "inline-flex" }}>Our Leadership</div>
+            <h2 className="h1-section mt-3">The People Behind MP Industries</h2>
+            <p className="lead mt-3">
+              Three generations of manufacturing expertise, guided by a commitment to
+              quality and long-term partnerships.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                name: "Hemant Patel",
+                initials: "HP",
+                title: "Managing Director",
+                /* When real photo is provided, replace the initials circle with:
+                   <img src="/images/hemant-patel.jpg" alt="Hemant Patel" />
+                   styled as circle: border-radius:50%, width/height 96px,
+                   border:3px solid #C04028, object-fit:cover */
+                message:
+                  "MP Industries was built on one simple belief — if a part carries our name, it has to be right. Over three decades, we have supplied components to hundreds of manufacturers across India and abroad, and that belief has never changed. What started as a small workshop in Ahmedabad has grown into a business that reaches Africa and the Middle East — but the commitment to precision and reliability remains the same as day one.",
+              },
+              {
+                name: "Mitesh Patel",
+                initials: "MP",
+                title: "Director",
+                /* When real photo is provided, replace the initials circle with:
+                   <img src="/images/mitesh-patel.jpg" alt="Mitesh Patel" /> */
+                message:
+                  "I grew up around these machines and these parts. Taking over meant understanding not just the products, but the trust our customers place in us every time they place an order. My focus has been on modernising our operations, expanding our reach, and making MP Industries the first name that comes to mind when someone needs a concrete mixer part — anywhere in India or overseas.",
+              },
+            ].map((d, i) => (
+              <ScrollReveal
+                key={d.name}
+                delay={i * 80}
+                className="bg-white relative transition-shadow"
+                style={{
+                  border: "1px solid #E8E8E8",
+                  borderRadius: 16,
+                  padding: 36,
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)")}
+                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+                data-testid={`director-card-${d.name.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                {/* Photo placeholder — initials circle */}
+                <div className="flex flex-col items-center">
+                  <div
+                    style={{
+                      width: 96,
+                      height: 96,
+                      borderRadius: "50%",
+                      backgroundColor: "#F7F6F2",
+                      border: "3px solid #C04028",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    aria-hidden="true"
+                  >
+                    <span
+                      style={{
+                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontWeight: 700,
+                        fontSize: 28,
+                        color: "#C04028",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {d.initials}
+                    </span>
+                  </div>
+                  <div
+                    className="mt-2"
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: 10,
+                      color: "#3D3D3D",
+                    }}
+                  >
+                    Photo coming soon
+                  </div>
+                </div>
+
+                <h3
+                  className="mt-4 text-center"
+                  style={{
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontWeight: 700,
+                    fontSize: 22,
+                    color: "#1A1A1A",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {d.name}
+                </h3>
+                <div
+                  className="text-center mt-1"
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#C04028",
+                  }}
+                >
+                  {d.title}
+                </div>
+                <div
+                  className="text-center mt-0.5"
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 13,
+                    color: "#3D3D3D",
+                  }}
+                >
+                  MP Industries
+                </div>
+
+                <div
+                  style={{
+                    height: 1,
+                    backgroundColor: "#E8E8E8",
+                    margin: "20px 0",
+                  }}
+                  aria-hidden="true"
+                />
+
+                <div style={{ position: "relative" }}>
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      top: -20,
+                      left: -6,
+                      fontFamily: "'Playfair Display', Georgia, serif",
+                      fontSize: 64,
+                      color: "#C04028",
+                      opacity: 0.3,
+                      lineHeight: 0,
+                      pointerEvents: "none",
+                    }}
+                  >
+                    “
+                  </span>
+                  <p
+                    style={{
+                      fontFamily: "'Playfair Display', Georgia, serif",
+                      fontStyle: "italic",
+                      fontWeight: 400,
+                      fontSize: 16,
+                      color: "#3D3D3D",
+                      lineHeight: 1.8,
+                      position: "relative",
+                    }}
+                  >
+                    {d.message}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
