@@ -92,9 +92,95 @@ const Home = () => {
         jsonLd={jsonLd}
       />
 
-      {/* ── HERO — full-width image background ─────────────────────── */}
+      {/* ── HERO MOBILE (< md) — stacked layout ────────────────────── */}
+      <section className="md:hidden" data-testid="hero-section-mobile">
+        <div className="relative" style={{ height: 280, width: "100%" }}>
+          <img
+            src="/images/hero.png"
+            alt="MP Industries concrete mixer machine parts"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center right",
+              display: "block",
+            }}
+          />
+          {/* bottom fade into text section */}
+          <div
+            className="absolute inset-x-0 bottom-0 pointer-events-none"
+            style={{
+              height: 80,
+              background:
+                "linear-gradient(to bottom, transparent 0%, #F7F6F2 100%)",
+            }}
+            aria-hidden="true"
+          />
+        </div>
+        <div style={{ backgroundColor: "#F7F6F2", padding: "32px 20px 40px" }}>
+          <div
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              color: "#C04028",
+            }}
+          >
+            AHMEDABAD'S CONCRETE MIXER PARTS EXPERTS
+          </div>
+          <h1
+            className="mt-3"
+            style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontWeight: 700,
+              fontSize: 30,
+              lineHeight: 1.15,
+              letterSpacing: "-0.005em",
+              color: "#1A1A1A",
+            }}
+          >
+            Built for the machines
+            <br />
+            <span style={{ color: "#C04028" }}>that build India.</span>
+          </h1>
+          <p
+            className="mt-3"
+            style={{ color: "#3D3D3D", fontSize: 14, lineHeight: 1.6 }}
+          >
+            MP Industries is Ahmedabad's trusted manufacturer of precision concrete
+            mixer machine parts — serving manufacturers, dealers and contractors
+            across India, Africa and the Middle East for over 20 years.
+          </p>
+
+          <div className="mt-5 flex flex-col gap-3">
+            <Link to="/products" className="btn-primary w-full" data-testid="hero-cta-products-mobile">
+              Explore Products
+              <ArrowRight size={16} />
+            </Link>
+            <Link to="/contact" className="btn-outline-brand w-full" data-testid="hero-cta-contact-mobile">
+              Contact Us
+            </Link>
+          </div>
+
+          <div
+            className="mt-5 grid grid-cols-2"
+            style={{ gap: "10px 16px", color: "#3D3D3D", fontSize: 12 }}
+            data-testid="hero-trust-row-mobile"
+          >
+            {["20+ Years Experience", "Pan-India Supply", "Direct Manufacturer", "Global Export"].map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5">
+                <span style={{ color: "#C04028", fontWeight: 700 }}>✓</span> {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HERO DESKTOP (≥ md) — full-width image background ──────── */}
       <section
-        className="relative"
+        className="relative hidden md:block"
         data-testid="hero-section"
         style={{
           minHeight: "100vh",

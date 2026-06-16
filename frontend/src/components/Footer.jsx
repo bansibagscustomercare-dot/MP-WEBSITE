@@ -6,9 +6,9 @@ import { SITE, whatsappChatURL } from "../data/site";
 export const Footer = () => {
   return (
     <footer className="bg-[#1A1A1A] text-white" data-testid="footer">
-      <div className="container-mp py-16 grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div className="container-mp py-14 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-10 text-center md:text-left">
         <div className="md:col-span-5">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 justify-center md:justify-start">
             <img
               src="/logo.png"
               alt="MP Industries logo"
@@ -19,7 +19,7 @@ export const Footer = () => {
               <div className="text-[10px] uppercase tracking-[0.16em] text-white/55 mt-1">Concrete Mixer Parts</div>
             </div>
           </div>
-          <p className="mt-6 text-[15px] leading-relaxed text-white/60 max-w-md">
+          <p className="mt-6 text-[15px] leading-relaxed text-white/60 max-w-md mx-auto md:mx-0">
             {SITE.tagline}. Precision concrete mixer machine parts, manufactured in Ahmedabad and supplied across India, Africa and the Middle East.
           </p>
           <a
@@ -59,7 +59,7 @@ export const Footer = () => {
 
         <div className="md:col-span-4">
           <h4 className="text-[11px] uppercase font-bold tracking-[0.12em] text-white/55">Contact</h4>
-          <ul className="mt-4 space-y-3 text-[15px] text-white/75">
+          <ul className="mt-4 space-y-3 text-[15px] text-white/75 inline-block text-left md:block">
             <li className="flex items-start gap-3">
               <Phone size={16} className="mt-1 text-[#C04028]" />
               <div>

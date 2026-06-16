@@ -169,8 +169,8 @@ body {
   .h1-hero {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 700;
-    font-size: 32px;
-    line-height: 1.1;
+    font-size: 30px;
+    line-height: 1.15;
     letter-spacing: -0.005em;
     color: var(--ink);
   }
@@ -181,7 +181,7 @@ body {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 700;
     font-size: 26px;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -0.005em;
     color: var(--ink);
   }

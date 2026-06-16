@@ -68,7 +68,10 @@ export const StatsBar = () => {
       aria-label="Company stats"
       data-testid="stats-bar"
     >
-      <div className="container-mp" style={{ paddingTop: 28, paddingBottom: 28 }}>
+      <div
+        className="container-mp stats-bar-inner"
+        style={{ paddingTop: 32, paddingBottom: 32 }}
+      >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-7 gap-x-4 md:gap-x-6 stats-pad">
           {stats.map((s, i) => (
             <div
@@ -81,7 +84,7 @@ export const StatsBar = () => {
                 style={{
                   fontFamily: "'Playfair Display', Georgia, serif",
                   fontWeight: 700,
-                  fontSize: "clamp(28px, 4.2vw, 42px)",
+                  fontSize: "clamp(36px, 5vw, 42px)",
                   letterSpacing: "-0.01em",
                   whiteSpace: "nowrap",
                 }}
@@ -111,7 +114,7 @@ export const StatsBar = () => {
       </div>
       <style>{`
         @media (min-width: 768px) {
-          [data-testid="stats-bar"] > div { padding-top: 40px !important; padding-bottom: 40px !important; }
+          .stats-bar-inner { padding-top: 40px !important; padding-bottom: 40px !important; }
         }
       `}</style>
     </section>
