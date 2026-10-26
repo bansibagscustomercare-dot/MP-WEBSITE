@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search, MessageCircle } from "lucide-react";
 import { Logo } from "./Logo";
+import { SITE, whatsappChatURL } from "../data/site";
 
 const links = [
   { to: "/", label: "Home" },
@@ -11,77 +12,43 @@ const links = [
 ];
 
 export const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   useEffect(() => { setOpen(false); }, [location.pathname]);
-
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   return (
-    <header
-      className={`sticky top-0 z-40 w-full bg-white transition-shadow ${
-        scrolled ? "shadow-[0_2px_12px_rgba(0,0,0,0.08)]" : ""
-      }`}
-      data-testid="navbar"
-    >
-      <nav
-        className="container-mp flex items-center justify-between"
-        style={{ height: "var(--nav-height)" }}
-        aria-label="Primary"
-      >
+    <header className="relative z-40 w-full bg-white" data-testid="navbar">
+      {/* Utility row (desktop) */}
+      <div className="hidden md:block">
+        <div className="container-mp flex justify-end items-center gap-6 pt-3 text-[13px] font-semibold tracking-[0.03em] text-[#3A3F45]">
+          <a href={`tel:${SITE.phonePrimary.replace(/\s/g, "")}`} className="hover:text-black transition-colors">{SITE.phonePrimary}</a>
+          <a href={`mailto:${SITE.email}`} className="hover:text-black transition-colors">{SITE.email}</a>
+        </div>
+      </div>
+
+      {/* Logo row */}
+      <div className="container-mp flex items-center justify-between py-3 md:pt-4 md:pb-3">
         <Link to="/" aria-label="MP Industries — Home" data-testid="navbar-logo-link">
           <Logo />
         </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-1">
-          {links.map((l) => (
-            <li key={l.to}>
-              <NavLink
-                to={l.to}
-                end={l.to === "/"}
-                data-testid={`nav-link-${l.label.toLowerCase()}`}
-                className={({ isActive }) =>
-                  `relative inline-flex items-center px-4 py-2 text-[15px] font-medium transition-colors ${
-                    isActive ? "text-[#C04028]" : "text-ink hover:text-[#C04028]"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {l.label}
-                    <span
-                      className={`absolute left-4 right-4 -bottom-1 h-[2px] rounded-full transition-all ${
-                        isActive ? "bg-[#C04028] opacity-100" : "opacity-0"
-                      }`}
-                    />
-                  </>
-                )}
-              </NavLink>
-            </li>
-          ))}
-          <li className="ml-4">
-            <Link to="/contact" className="btn-outline-brand" data-testid="nav-cta-contact">
-              Get a Quote
-            </Link>
-          </li>
-        </ul>
+        <div className="hidden md:flex items-center gap-5">
+          <Link to="/products" aria-label="Search products" className="text-black hover:text-[#C04028] transition-colors" data-testid="nav-search">
+            <Search size={22} strokeWidth={1.75} />
+          </Link>
+          <a href={whatsappChatURL()} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className="text-black hover:text-[#25D366] transition-colors">
+            <MessageCircle size={22} strokeWidth={1.75} />
+          </a>
+          <Link to="/contact" className="btn-primary" data-testid="nav-cta-contact">Get a Quote</Link>
+        </div>
 
-        {/* Mobile toggle */}
         <button
-          className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-md border border-hairline"
+          className="md:hidden inline-flex items-center justify-center w-11 h-11 border border-hairline"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-drawer"
@@ -90,38 +57,48 @@ export const Navbar = () => {
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
-      </nav>
+      </div>
 
-      {/* Mobile drawer */}
-      <div
-        id="mobile-drawer"
-        className={`md:hidden fixed inset-x-0 top-[var(--nav-height)] z-40 bg-white border-t border-hairline transition-transform duration-300 ${
-          open ? "translate-y-0" : "-translate-y-[120%]"
-        }`}
-        style={{ maxHeight: "calc(100vh - var(--nav-height))", overflowY: "auto" }}
-        data-testid="mobile-drawer"
-      >
-        <ul className="container-mp py-4 flex flex-col gap-1">
+      {/* Nav row (desktop) */}
+      <nav className="hidden md:block" aria-label="Primary">
+        <ul className="container-mp flex items-center gap-8 pb-4">
           {links.map((l) => (
             <li key={l.to}>
               <NavLink
                 to={l.to}
                 end={l.to === "/"}
-                data-testid={`mobile-nav-link-${l.label.toLowerCase()}`}
-                className={({ isActive }) =>
-                  `block px-3 py-3 rounded-md text-[16px] font-medium ${
-                    isActive ? "text-[#C04028] bg-[#FBF0ED]" : "text-ink"
-                  }`
-                }
+                data-testid={`nav-link-${l.label.toLowerCase()}`}
+                className={({ isActive }) => `nav-link ${isActive ? "is-active" : ""}`}
               >
                 {l.label}
               </NavLink>
             </li>
           ))}
-          <li className="mt-2">
-            <Link to="/contact" className="btn-outline-brand w-full justify-center" data-testid="mobile-cta-contact">
-              Get a Quote
-            </Link>
+        </ul>
+      </nav>
+
+      {/* Mobile drawer */}
+      <div
+        id="mobile-drawer"
+        className={`md:hidden fixed inset-x-0 top-[68px] bottom-0 z-40 bg-white border-t border-hairline duration-300 ${open ? "translate-y-0" : "-translate-y-[120%]"}`}
+        style={{ overflowY: "auto" }}
+        data-testid="mobile-drawer"
+      >
+        <ul className="container-mp py-4 flex flex-col">
+          {links.map((l) => (
+            <li key={l.to} className="border-b border-hairline">
+              <NavLink
+                to={l.to}
+                end={l.to === "/"}
+                data-testid={`mobile-nav-link-${l.label.toLowerCase()}`}
+                className={({ isActive }) => `block py-4 font-display text-[28px] font-bold ${isActive ? "text-[#C04028]" : "text-black"}`}
+              >
+                {l.label}
+              </NavLink>
+            </li>
+          ))}
+          <li className="mt-6">
+            <Link to="/contact" className="btn-primary w-full" data-testid="mobile-cta-contact">Get a Quote</Link>
           </li>
         </ul>
       </div>

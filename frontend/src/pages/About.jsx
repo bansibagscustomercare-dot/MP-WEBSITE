@@ -7,7 +7,7 @@ import Timeline from "../components/Timeline";
 import ScrollReveal from "../components/ScrollReveal";
 
 const stats = [
-  { value: "20+", label: "Years in Business" },
+  { value: "35+", label: "Years in Business" },
   { value: "69+", label: "Products" },
   { value: "Pan-India", label: "Supply Network" },
   { value: "3", label: "Continents Served" },
@@ -53,8 +53,8 @@ const About = () => {
   return (
     <>
       <SEO
-        title="About MP Industries | 20+ Years Manufacturing Mixer Parts in Ahmedabad"
-        description="Established 2004. Acquired & relaunched 2017. MP Industries manufactures 69+ precision concrete mixer machine parts in Ahmedabad — trusted by OEMs and dealers across India, Africa and the Middle East."
+        title="About MP Industries | 35+ Years Manufacturing Mixer Parts in Ahmedabad"
+        description="Established 1990. Acquired & relaunched 2017. MP Industries manufactures 69+ precision concrete mixer machine parts in Ahmedabad — trusted by OEMs and dealers across India, Africa and the Middle East."
         keywords="MP Industries Ahmedabad, mixer parts manufacturer history, concrete mixer parts company, registered mixer parts brand"
         path="/about"
       />
@@ -62,7 +62,7 @@ const About = () => {
       <PageHeader
         image="/images/header-about.png"
         eyebrow="About MP Industries"
-        title="20 Years of Precision."
+        title="35+ Years of Precision."
         subtext="Trusted by manufacturers, dealers and contractors across India, Africa and the Middle East."
       />
 
@@ -101,7 +101,7 @@ const About = () => {
               >
                 <div
                   style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                     fontWeight: 700,
                     color: "#C04028",
                     fontSize: 28,
@@ -112,7 +112,7 @@ const About = () => {
                 </div>
                 <div
                   className="mt-2"
-                  style={{ fontFamily: "Inter", fontSize: 10, textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.12em", color: "#3D3D3D" }}
+                  style={{ fontFamily: "Barlow, sans-serif", fontSize: 10, textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.12em", color: "#3D3D3D" }}
                 >
                   {s.label}
                 </div>
@@ -148,7 +148,7 @@ const About = () => {
           <div style={{ maxWidth: "50%" }} className="max-md:!max-w-full">
             <div
               style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "Barlow, sans-serif",
                 fontSize: 11,
                 fontWeight: 700,
                 textTransform: "uppercase",
@@ -161,7 +161,7 @@ const About = () => {
             <h2
               className="mt-3"
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                 fontWeight: 700,
                 color: "#ffffff",
                 fontSize: "clamp(24px, 3.2vw, 36px)",
@@ -178,7 +178,7 @@ const About = () => {
             />
             <p
               style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "Barlow, sans-serif",
                 fontSize: 15,
                 color: "rgba(255,255,255,0.75)",
                 maxWidth: 440,
@@ -251,7 +251,7 @@ const About = () => {
                 className="bg-white relative transition-shadow"
                 style={{
                   border: "1px solid #E8E8E8",
-                  borderRadius: 16,
+                  borderRadius: 0,
                   padding: 36,
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)")}
@@ -275,7 +275,7 @@ const About = () => {
                   >
                     <span
                       style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                         fontWeight: 700,
                         fontSize: 28,
                         color: "#C04028",
@@ -288,7 +288,7 @@ const About = () => {
                   <div
                     className="mt-2"
                     style={{
-                      fontFamily: "Inter, sans-serif",
+                      fontFamily: "Barlow, sans-serif",
                       fontSize: 10,
                       color: "#3D3D3D",
                     }}
@@ -300,7 +300,7 @@ const About = () => {
                 <h3
                   className="mt-4 text-center"
                   style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                     fontWeight: 700,
                     fontSize: 22,
                     color: "#1A1A1A",
@@ -312,7 +312,7 @@ const About = () => {
                 <div
                   className="text-center mt-1"
                   style={{
-                    fontFamily: "Inter, sans-serif",
+                    fontFamily: "Barlow, sans-serif",
                     fontSize: 12,
                     fontWeight: 600,
                     textTransform: "uppercase",
@@ -325,7 +325,7 @@ const About = () => {
                 <div
                   className="text-center mt-0.5"
                   style={{
-                    fontFamily: "Inter, sans-serif",
+                    fontFamily: "Barlow, sans-serif",
                     fontSize: 13,
                     color: "#3D3D3D",
                   }}
@@ -349,7 +349,7 @@ const About = () => {
                       position: "absolute",
                       top: -20,
                       left: -6,
-                      fontFamily: "'Playfair Display', Georgia, serif",
+                      fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                       fontSize: 64,
                       color: "#C04028",
                       opacity: 0.3,
@@ -361,7 +361,7 @@ const About = () => {
                   </span>
                   <p
                     style={{
-                      fontFamily: "'Playfair Display', Georgia, serif",
+                      fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                       fontStyle: "italic",
                       fontWeight: 400,
                       fontSize: 16,
@@ -397,7 +397,7 @@ const About = () => {
               "Pedestals", "Pulleys", "Rollers", "Brakes & Clutch",
             ].map((item, i) => (
               <ScrollReveal key={item} delay={i * 40} className="card-mp p-4 text-center">
-                <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 16, color: "#1A1A1A" }}>
+                <div style={{ fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif", fontWeight: 600, fontSize: 16, color: "#1A1A1A" }}>
                   {item}
                 </div>
               </ScrollReveal>
@@ -421,11 +421,11 @@ const About = () => {
               { icon: Globe2, title: "International Buyers", body: "Active export shipments to clients in Africa and the Middle East." },
             ].map(({ icon: Icon, title, body }, i) => (
               <ScrollReveal key={title} delay={i * 50} className="card-mp p-5 flex gap-3.5">
-                <div className="shrink-0 w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
+                <div className="shrink-0 w-10 h-10 rounded-none flex items-center justify-center" style={{ backgroundColor: "transparent" }}>
                   <Icon size={18} color="#C04028" />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 18, color: "#1A1A1A" }}>{title}</h3>
+                  <h3 style={{ fontFamily: "Barlow, sans-serif", fontWeight: 600, fontSize: 18, color: "#1A1A1A" }}>{title}</h3>
                   <p className="mt-1" style={{ color: "#3D3D3D", fontSize: 14, lineHeight: 1.6 }}>{body}</p>
                 </div>
               </ScrollReveal>
@@ -445,14 +445,14 @@ const About = () => {
           <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3">
             {[
               { icon: BadgeCheck, label: "Registered ® Trademark" },
-              { icon: ShieldCheck, label: "20+ Years Experience" },
+              { icon: ShieldCheck, label: "35+ Years Experience" },
               { icon: Factory, label: "69+ Products" },
               { icon: Globe2, label: "Pan-India + Export" },
               { icon: Users, label: "Direct Manufacturer" },
             ].map(({ icon: Icon, label }, i) => (
               <ScrollReveal key={label} delay={i * 50} className="card-mp p-4 text-center">
                 <Icon size={22} color="#C04028" className="mx-auto" />
-                <div className="mt-2" style={{ fontFamily: "Inter", fontWeight: 600, fontSize: 13, color: "#1A1A1A", lineHeight: 1.4 }}>
+                <div className="mt-2" style={{ fontFamily: "Barlow, sans-serif", fontWeight: 600, fontSize: 13, color: "#1A1A1A", lineHeight: 1.4 }}>
                   {label}
                 </div>
               </ScrollReveal>

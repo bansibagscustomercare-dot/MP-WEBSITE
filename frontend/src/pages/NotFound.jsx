@@ -19,7 +19,7 @@ const NotFound = () => (
         />
         <div
           style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
+            fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
             fontWeight: 700,
             color: "#C04028",
             fontSize: 120,

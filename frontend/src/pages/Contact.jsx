@@ -27,10 +27,10 @@ const Contact = () => {
           <ScrollReveal className="lg:col-span-5 space-y-4">
             <div className="card-mp p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
+                <div className="w-10 h-10 rounded-none flex items-center justify-center" style={{ backgroundColor: "transparent" }}>
                   <Phone size={18} color="#C04028" />
                 </div>
-                <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>
+                <h2 style={{ fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>
                   Call us directly
                 </h2>
               </div>
@@ -57,10 +57,10 @@ const Contact = () => {
 
             <div className="card-mp p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#E6F8EE" }}>
+                <div className="w-10 h-10 rounded-none flex items-center justify-center" style={{ backgroundColor: "#E6F8EE" }}>
                   <MessageCircle size={18} color="#25D366" />
                 </div>
-                <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>WhatsApp</h2>
+                <h2 style={{ fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>WhatsApp</h2>
               </div>
               <p style={{ color: "#3D3D3D", fontSize: 14, lineHeight: 1.6 }}>
                 The fastest way to reach us. Share your part name, quantity and location — we'll respond with availability.
@@ -69,7 +69,7 @@ const Contact = () => {
                 href={whatsappChatURL()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold text-white transition-transform hover:-translate-y-0.5"
+                className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-none font-semibold text-white"
                 style={{ backgroundColor: "#25D366", fontSize: 14 }}
                 data-testid="contact-whatsapp-btn"
               >
@@ -80,10 +80,10 @@ const Contact = () => {
 
             <div className="card-mp p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
+                <div className="w-10 h-10 rounded-none flex items-center justify-center" style={{ backgroundColor: "transparent" }}>
                   <Mail size={18} color="#C04028" />
                 </div>
-                <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>Email</h2>
+                <h2 style={{ fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>Email</h2>
               </div>
               <a
                 href={`mailto:${SITE.email}`}
@@ -97,10 +97,10 @@ const Contact = () => {
 
             <div className="card-mp p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: "#FBF0ED" }}>
+                <div className="w-10 h-10 rounded-none flex items-center justify-center" style={{ backgroundColor: "transparent" }}>
                   <MapPin size={18} color="#C04028" />
                 </div>
-                <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>Address</h2>
+                <h2 style={{ fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif", fontWeight: 600, fontSize: 20, color: "#1A1A1A" }}>Address</h2>
               </div>
               <p style={{ color: "#3D3D3D", fontSize: 14, lineHeight: 1.6 }} data-testid="contact-address">
                 {SITE.addressFull}
@@ -111,7 +111,7 @@ const Contact = () => {
           <ScrollReveal className="lg:col-span-7" delay={100}>
             <div
               className="overflow-hidden h-full min-h-[420px] bg-white"
-              style={{ borderRadius: 12, border: "1px solid #E8E8E8" }}
+              style={{ borderRadius: 0, border: "1px solid #D3D8DD" }}
               data-testid="contact-map"
             >
               <iframe

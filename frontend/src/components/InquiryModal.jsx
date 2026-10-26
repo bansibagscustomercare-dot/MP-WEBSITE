@@ -114,7 +114,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
             type="button"
             onClick={onClose}
             aria-label="Close inquiry"
-            className="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-md border border-hairline hover:bg-surface"
+            className="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-none border border-hairline hover:bg-surface"
             data-testid="inquiry-modal-close-btn"
           >
             <X size={18} />
@@ -138,7 +138,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
               placeholder="e.g. Rakesh Patel"
               autoComplete="name"
               data-testid="inquiry-name-input"
-              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15 ${
+              className={`w-full h-11 px-4 rounded-none border bg-white text-[15px] outline-none transition-colors focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15 ${
                 errors.name ? "border-red-500" : "border-hairline"
               }`}
             />
@@ -161,7 +161,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
               autoComplete="tel"
               inputMode="tel"
               data-testid="inquiry-phone-input"
-              className={`w-full h-11 px-4 rounded-lg border bg-white text-[15px] outline-none transition-colors focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15 ${
+              className={`w-full h-11 px-4 rounded-none border bg-white text-[15px] outline-none transition-colors focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15 ${
                 errors.phone ? "border-red-500" : "border-hairline"
               }`}
             />
@@ -187,7 +187,7 @@ export const InquiryModal = ({ open, product, onClose }) => {
 
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-lg text-white font-semibold text-[15px] transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-none text-white font-semibold text-[15px] transition-all"
             style={{ backgroundColor: "#C04028" }}
             onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#A03520")}
             onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#C04028")}

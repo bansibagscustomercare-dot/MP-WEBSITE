@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Search, X, MessageCircle } from "lucide-react";
 import SEO from "../components/SEO";
 import PageHeader from "../components/PageHeader";
@@ -10,7 +11,16 @@ import { whatsappChatURL } from "../data/site";
 
 const Products = () => {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("all");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCat = searchParams.get("category");
+  const [category, setCategoryState] = useState(
+    categories.some((c) => c.id === initialCat) ? initialCat : "all"
+  );
+  const setCategory = (id) => {
+    setCategoryState(id);
+    if (id === "all") setSearchParams({}, { replace: true });
+    else setSearchParams({ category: id }, { replace: true });
+  };
   const [inquiryProduct, setInquiryProduct] = useState(null);
 
   const filtered = useMemo(() => {
@@ -44,8 +54,8 @@ const Products = () => {
       />
 
       <section
-        className="bg-white-section sticky z-20"
-        style={{ top: "var(--nav-height)", borderBottom: "1px solid #E8E8E8" }}
+        className="bg-white sticky top-0 z-20"
+        style={{ borderBottom: "1px solid #D3D8DD" }}
       >
         <div className="container-mp py-4">
           <div className="relative">
@@ -57,15 +67,15 @@ const Products = () => {
               placeholder="Search products... e.g. Bevel Gear, Drum, Pulley"
               data-testid="products-search-input"
               aria-label="Search products"
-              className="w-full h-11 pl-11 pr-11 rounded-lg border bg-white text-[14px] outline-none focus:border-[#C04028] focus:ring-2 focus:ring-[#C04028]/15"
-              style={{ borderColor: "#E8E8E8" }}
+              className="w-full h-11 pl-11 pr-11 border bg-white text-[15px] outline-none focus:border-black"
+              style={{ borderColor: "#D3D8DD" }}
             />
             {query && (
               <button
                 aria-label="Clear search"
                 onClick={() => setQuery("")}
                 data-testid="products-search-clear"
-                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md hover:bg-surface flex items-center justify-center"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 hover:bg-surface flex items-center justify-center"
               >
                 <X size={16} />
               </button>
@@ -92,7 +102,7 @@ const Products = () => {
         <div className="container-mp pt-8 pb-16 md:pt-10 md:pb-20">
           {filtered.length === 0 ? (
             <div className="text-center py-16 max-w-md mx-auto" data-testid="products-no-results">
-              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 28, color: "#1A1A1A" }}>
+              <div style={{ fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif", fontWeight: 700, fontSize: 28, color: "#1A1A1A" }}>
                 No products found
               </div>
               <p className="mt-2" style={{ color: "#3D3D3D", fontSize: 14 }}>
@@ -102,7 +112,7 @@ const Products = () => {
                 href={whatsappChatURL("Hi MP Industries! I am looking for a specific part. Can you help?")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold text-white"
+                className="mt-5 inline-flex items-center gap-2 px-5 py-3 font-bold uppercase tracking-wide text-white"
                 style={{ backgroundColor: "#25D366", fontSize: 14 }}
                 data-testid="no-results-whatsapp-btn"
               >
@@ -114,12 +124,12 @@ const Products = () => {
             <>
               <div
                 className="mb-4"
-                style={{ fontFamily: "Inter", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 700, color: "#3D3D3D" }}
+                style={{ fontFamily: "Barlow, sans-serif", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700, color: "#3A3F45" }}
                 data-testid="products-count"
               >
                 Showing {filtered.length} of {products.length} products
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {filtered.map((p, i) => (
                   <ScrollReveal key={p.id} delay={Math.min(i * 25, 200)}>
                     <ProductCard product={p} onInquire={setInquiryProduct} />

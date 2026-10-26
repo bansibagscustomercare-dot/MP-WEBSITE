@@ -139,7 +139,7 @@ export const Timeline = ({ items = [] }) => {
                           : { bottom: ROW_HEIGHT - LINE_OFFSET + 22 }),
                         backgroundColor: "#ffffff",
                         border: "1px solid #E8E8E8",
-                        borderRadius: 10,
+                        borderRadius: 0,
                         padding: 16,
                         maxWidth: 220,
                         width: 220,
@@ -148,7 +148,7 @@ export const Timeline = ({ items = [] }) => {
                       }}
                     >
                       <div style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                         fontWeight: 700,
                         fontSize: 18,
                         color: "#C04028",
@@ -158,7 +158,7 @@ export const Timeline = ({ items = [] }) => {
                       </div>
                       <div style={{
                         marginTop: 6,
-                        fontFamily: "Inter, sans-serif",
+                        fontFamily: "Barlow, sans-serif",
                         fontWeight: 700,
                         fontSize: 11,
                         textTransform: "uppercase",
@@ -169,7 +169,7 @@ export const Timeline = ({ items = [] }) => {
                       </div>
                       <p style={{
                         marginTop: 8,
-                        fontFamily: "Inter, sans-serif",
+                        fontFamily: "Barlow, sans-serif",
                         fontSize: 12.5,
                         lineHeight: 1.55,
                         color: "#3D3D3D",
@@ -284,7 +284,7 @@ export const Timeline = ({ items = [] }) => {
                       top: 0,
                       backgroundColor: "#ffffff",
                       border: "1px solid #E8E8E8",
-                      borderRadius: 10,
+                      borderRadius: 0,
                       padding: 16,
                       maxWidth: 220,
                       width: 220,
@@ -293,7 +293,7 @@ export const Timeline = ({ items = [] }) => {
                     }}
                   >
                     <div style={{
-                      fontFamily: "'Playfair Display', Georgia, serif",
+                      fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                       fontWeight: 700,
                       fontSize: 18,
                       color: "#C04028",
@@ -303,7 +303,7 @@ export const Timeline = ({ items = [] }) => {
                     </div>
                     <div style={{
                       marginTop: 6,
-                      fontFamily: "Inter, sans-serif",
+                      fontFamily: "Barlow, sans-serif",
                       fontWeight: 700,
                       fontSize: 11,
                       textTransform: "uppercase",
@@ -314,7 +314,7 @@ export const Timeline = ({ items = [] }) => {
                     </div>
                     <p style={{
                       marginTop: 8,
-                      fontFamily: "Inter, sans-serif",
+                      fontFamily: "Barlow, sans-serif",
                       fontSize: 12.5,
                       lineHeight: 1.55,
                       color: "#3D3D3D",
@@ -342,7 +342,7 @@ export const Timeline = ({ items = [] }) => {
 
 // ── Styles ──────────────────────────────────────────────────────────────
 const pillStyle = (active = false) => ({
-  fontFamily: "Inter, sans-serif",
+  fontFamily: "Barlow, sans-serif",
   fontSize: 9,
   fontWeight: 700,
   textTransform: "uppercase",
@@ -358,14 +358,14 @@ const pillStyle = (active = false) => ({
 });
 
 const yearStyle = {
-  fontFamily: "'Playfair Display', Georgia, serif",
+  fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
   fontWeight: 700,
   fontSize: 28,
   color: "#C04028",
   lineHeight: 1,
 };
 const titleStyle = {
-  fontFamily: "Inter, sans-serif",
+  fontFamily: "Barlow, sans-serif",
   fontSize: 12,
   fontWeight: 700,
   textTransform: "uppercase",
@@ -373,7 +373,7 @@ const titleStyle = {
   color: "#1A1A1A",
 };
 const descStyle = {
-  fontFamily: "Inter, sans-serif",
+  fontFamily: "Barlow, sans-serif",
   fontSize: 13,
   color: "#3D3D3D",
   maxWidth: 180,

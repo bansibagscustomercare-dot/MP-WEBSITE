@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 /**
  * CategoryCard — Accuplus-style category teaser used on the homepage.
- * Shows: icon · arrow · category name (Playfair, brand) · description · pill tags.
+ * Shows: icon · arrow · category name (display font) · description · pill tags.
  */
 export const CategoryCard = ({ icon: Icon, title, description, tags = [], to = "/products" }) => {
   return (
@@ -15,7 +15,7 @@ export const CategoryCard = ({ icon: Icon, title, description, tags = [], to = "
     >
       <div className="flex items-start justify-between">
         <div
-          className="w-12 h-12 rounded-md flex items-center justify-center"
+          className="w-12 h-12 rounded-none flex items-center justify-center"
           style={{ backgroundColor: "#FBF0ED" }}
         >
           <Icon size={22} color="#C04028" />

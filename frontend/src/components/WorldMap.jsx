@@ -143,7 +143,7 @@ export const WorldMap = () => {
         ref={containerRef}
         className="relative w-full"
         data-testid="world-map"
-        style={{ borderRadius: 12, overflow: "hidden", backgroundColor: "#D6E8F0" }}
+        style={{ borderRadius: 0, overflow: "hidden", backgroundColor: "#D6E8F0" }}
       >
         <svg
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
@@ -227,7 +227,7 @@ export const WorldMap = () => {
                 <text
                   x={cx + 10}
                   y={cy + 4}
-                  fontFamily="Inter, sans-serif"
+                  fontFamily="Barlow, sans-serif"
                   fontSize="12"
                   fontWeight="700"
                   fill="#FFFFFF"
@@ -246,7 +246,7 @@ export const WorldMap = () => {
         {/* Tooltip */}
         {hoverRegion && (
           <div
-            className="absolute px-3 py-2 rounded-md shadow-xl pointer-events-none"
+            className="absolute px-3 py-2 rounded-none pointer-events-none"
             role="status"
             data-testid="region-tooltip"
             style={{
@@ -299,7 +299,7 @@ export const WorldMap = () => {
             className="bg-white relative"
             style={{
               border: "1px solid #E8E8E8",
-              borderRadius: 12,
+              borderRadius: 0,
               padding: 24,
               boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
             }}
@@ -309,14 +309,14 @@ export const WorldMap = () => {
               type="button"
               onClick={() => setActive(null)}
               aria-label="Close region detail"
-              className="absolute top-3 right-3 w-8 h-8 rounded-md flex items-center justify-center hover:bg-surface"
+              className="absolute top-3 right-3 w-8 h-8 rounded-none flex items-center justify-center hover:bg-surface"
               data-testid="region-detail-close"
             >
               <X size={16} />
             </button>
             <h3
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                 fontWeight: 700,
                 fontSize: 20,
                 color: "#C04028",
@@ -335,7 +335,7 @@ export const WorldMap = () => {
               className="mt-3"
               style={{
                 color: "#C04028",
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "Barlow, sans-serif",
                 fontSize: 11,
                 fontWeight: 700,
                 textTransform: "uppercase",
@@ -348,8 +348,8 @@ export const WorldMap = () => {
               href={inquiryURL(active)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-white font-semibold transition-transform hover:-translate-y-0.5"
-              style={{ backgroundColor: "#25D366", fontSize: 14, fontFamily: "Inter, sans-serif" }}
+              className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-none text-white font-semibold"
+              style={{ backgroundColor: "#25D366", fontSize: 14, fontFamily: "Barlow, sans-serif" }}
               data-testid={`region-inquire-${active}`}
             >
               <MessageCircle size={16} />

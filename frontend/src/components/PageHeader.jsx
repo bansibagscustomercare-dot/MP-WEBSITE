@@ -20,12 +20,12 @@ export const PageHeader = ({ image, eyebrow, title, subtext, testId }) => {
         <h1
           className="mt-3"
           style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontWeight: 700,
+            fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
+            fontWeight: 800,
             color: "#ffffff",
-            fontSize: "clamp(28px, 4.2vw, 44px)",
-            lineHeight: 1.1,
-            letterSpacing: "-0.005em",
+            fontSize: "clamp(36px, 5.2vw, 60px)",
+            lineHeight: 1.02,
+            letterSpacing: 0,
           }}
         >
           {title}
@@ -34,9 +34,9 @@ export const PageHeader = ({ image, eyebrow, title, subtext, testId }) => {
           <p
             className="mt-2 max-w-2xl"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "Barlow, sans-serif",
               color: "rgba(255,255,255,0.85)",
-              fontSize: 15,
+              fontSize: 17,
               lineHeight: 1.6,
             }}
           >

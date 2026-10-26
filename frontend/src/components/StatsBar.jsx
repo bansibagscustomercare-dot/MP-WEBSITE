@@ -32,7 +32,7 @@ const CountUp = ({ to = 100, duration = 1500, suffix = "", start = false }) => {
 };
 
 const stats = [
-  { id: "years", label: "Years of Experience", value: 20, suffix: "+" },
+  { id: "years", label: "Years of Experience", value: 35, suffix: "+" },
   { id: "products", label: "Products", value: 69, suffix: "+" },
   { id: "india", label: "Pan-India Supply", text: "Pan-India" },
   { id: "export", label: "Global Export", text: "Global" },
@@ -82,7 +82,7 @@ export const StatsBar = () => {
               <div
                 className="leading-none"
                 style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontFamily: "'Barlow Condensed', 'Arial Narrow', sans-serif",
                   fontWeight: 700,
                   fontSize: "clamp(36px, 5vw, 42px)",
                   letterSpacing: "-0.01em",
@@ -98,7 +98,7 @@ export const StatsBar = () => {
               <div
                 className="mt-2"
                 style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "Barlow, sans-serif",
                   fontSize: 10,
                   textTransform: "uppercase",
                   fontWeight: 600,

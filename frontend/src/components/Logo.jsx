@@ -12,7 +12,7 @@ export const Logo = ({ height = 44, withText = true }) => {
         <div
           className="leading-none"
           style={{
-            fontFamily: "Inter, sans-serif",
+            fontFamily: "Barlow, sans-serif",
             fontSize: 11,
             fontWeight: 700,
             textTransform: "uppercase",
