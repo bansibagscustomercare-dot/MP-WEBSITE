@@ -40,18 +40,18 @@ export const HeroAccordion = ({ slides = heroSlides }) => {
               role="tab"
               aria-selected={open}
               tabIndex={open ? 0 : 0}
-              className={`hx-slice ${open ? "is-open" : ""}`}
+              className={`hx-slice ${open ? "is-open" : ""} ${s.tone === "light" ? "tone-light" : ""}`}
               onClick={() => !open && setActive(i)}
               onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && !open) { e.preventDefault(); setActive(i); } }}
               data-testid={`hero-slice-${s.id}`}
               aria-label={`${pad(i)} ${s.title}`}
             >
-              {s.image ? <img className="hx-img" src={s.image} alt="" loading={i === 0 ? "eager" : "lazy"} /> : <div className="hx-img-ph" />}
+              {s.image ? <img className="hx-img" src={s.image} alt="" loading={i === 0 ? "eager" : "lazy"} style={{ objectPosition: open ? "55% 50%" : `${s.focus ?? 50}% 50%` }} /> : <div className="hx-img-ph" />}
               <div className="hx-shade" />
               <div className="hx-index">{pad(i)}</div>
               <div className="hx-vtitle" aria-hidden="true"><span>{s.title}</span></div>
               <div className="hx-body">
-                <div className="hx-kicker">{s.kicker}</div>
+                {s.kicker ? <div className="hx-kicker">{s.kicker}</div> : null}
                 <h2 className="hx-title">{s.headline}</h2>
                 <Link to={s.to} className="hx-cta" tabIndex={open ? 0 : -1}>
                   {s.cta} <Arrow />
@@ -67,15 +67,15 @@ export const HeroAccordion = ({ slides = heroSlides }) => {
         {slides.map((s, i) => {
           const open = i === active;
           return (
-            <div key={s.id} className={`hxm-slice ${open ? "is-open" : ""}`}>
-              {s.image ? <img className="hx-img" src={s.image} alt="" loading={i === 0 ? "eager" : "lazy"} /> : <div className="hx-img-ph" />}
-              <div className="hx-shade" style={{ background: open ? "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.1))" : "rgba(0,0,0,.5)" }} />
+            <div key={s.id} className={`hxm-slice ${open ? "is-open" : ""} ${s.tone === "light" ? "tone-light" : ""}`}>
+              {s.image ? <img className="hx-img" src={s.image} alt="" loading={i === 0 ? "eager" : "lazy"} style={{ objectPosition: open ? "85% 50%" : "70% 50%" }} /> : <div className="hx-img-ph" />}
+              <div className="hx-shade" style={{ background: open ? (s.tone === "light" ? "linear-gradient(to top, rgba(255,255,255,.9) 0%, rgba(255,255,255,.55) 35%, rgba(255,255,255,0) 65%)" : "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.1))") : "rgba(0,0,0,.5)" }} />
               <button className="hxm-bar" onClick={() => setActive(i)} aria-expanded={open}>
                 <b>{pad(i)}</b>
                 {!open && <span>{s.title}</span>}
               </button>
               <div className="hxm-body">
-                <div className="hx-kicker">{s.kicker}</div>
+                {s.kicker ? <div className="hx-kicker">{s.kicker}</div> : null}
                 <h2 className="hx-title">{s.headline}</h2>
                 <Link to={s.to} className="hx-cta" tabIndex={open ? 0 : -1}>{s.cta} <Arrow /></Link>
               </div>

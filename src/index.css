@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── MP Industries — Industrial design system (Liebherr-inspired) ───── */
+:root {
+  --brand: #C04028;
+  --brand-dark: #A03520;
+  --brand-tint: #FBF0ED;
+  --ink: #000000;
+  --graphite: #3A3F45;
+  --cream: #F4F5F7;
+  --surface: #F4F5F7;
+  --hairline: #D3D8DD;
+  --whatsapp: #25D366;
+  --nav-height: 72px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: var(--ink);
+  font-family: "Barlow", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+::selection { background: var(--brand); color: #fff; }
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 12 64% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 17% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 210 17% 96%;
+    --muted-foreground: 210 6% 25%;
+    --accent: 210 17% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 208 14% 85%;
+    --input: 208 14% 85%;
+    --ring: 12 64% 50%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { background-color: #ffffff; }
+  h1, h2 {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  h3 {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .container-mp {
+    @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+
+  /* — Buttons: square, uppercase, bold, with arrow — */
+  .btn-primary, .btn-outline-brand, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 12px 19px;
+    border-radius: 0;
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background-color 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .btn-primary { color: #fff; background-color: var(--brand); border: 2px solid var(--brand); }
+  .btn-primary:hover { background-color: var(--brand-dark); border-color: var(--brand-dark); }
+  .btn-outline-brand { border: 2px solid var(--brand); color: var(--brand); background: transparent; }
+  .btn-outline-brand:hover { background-color: var(--brand); color: #fff; }
+  .btn-secondary { color: var(--ink); border: 2px solid var(--ink); background: transparent; }
+  .btn-secondary:hover { background-color: var(--ink); color: #fff; }
+  .btn-primary:focus-visible, .btn-outline-brand:focus-visible, .btn-secondary:focus-visible {
+    outline: 2px solid var(--ink); outline-offset: 3px;
+  }
+
+  /* — Eyebrow / kicker — */
+  .eyebrow {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--graphite);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before { content: none; }
+  .eyebrow.eyebrow-light { color: #ffffff; }
+
+  /* — Headings (condensed heavy, like Liebherr) — */
+  .h1-hero {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 800; font-size: 40px; line-height: 1.02; color: var(--ink);
+  }
+  @media (min-width: 768px) { .h1-hero { font-size: 56px; } }
+  .h1-section {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 800; font-size: 34px; line-height: 1.05; color: var(--ink);
+  }
+  @media (min-width: 768px) { .h1-section { font-size: 44px; } }
+  .h2-section {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 800; font-size: 28px; line-height: 1.1; color: var(--ink);
+  }
+  @media (min-width: 768px) { .h2-section { font-size: 34px; } }
+  .lead { font-family: "Barlow", sans-serif; font-size: 18px; color: var(--ink); line-height: 1.6; }
+
+  /* — Cards / tiles: hairline border, no radius, no shadow — */
+  .card-mp {
+    background-color: #ffffff;
+    border: 1px solid var(--hairline);
+    border-radius: 0;
+    transition: border-color 0.3s var(--ease);
+  }
+  .card-mp:hover { border-color: var(--ink); }
+
+  .pill {
+    display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 0;
+    border: 1px solid var(--hairline); font-family: "Barlow", sans-serif;
+    font-size: 12px; color: var(--graphite); background: #ffffff; white-space: nowrap;
+  }
+
+  .chip {
+    display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 0;
+    font-family: "Barlow", sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    border: 1px solid var(--hairline); color: var(--graphite); background: #fff;
+    transition: all 0.3s var(--ease); white-space: nowrap;
+  }
+  .chip:hover { color: var(--ink); border-color: var(--ink); }
+  .chip-active { background-color: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* — Caption link (uppercase, chevron, underline on hover) — */
+  .caption-link {
+    display: inline-flex; align-items: flex-start; justify-content: space-between; gap: 12px; width: 100%;
+    font-family: "Barlow", sans-serif; font-weight: 700; font-size: 14px;
+    letter-spacing: 0.04em; text-transform: uppercase; color: #3A3F45;
+  }
+  .caption-link span.cl-text { border-bottom: 2px solid transparent; transition: border-color 0.3s var(--ease); }
+  .group:hover .caption-link span.cl-text { border-bottom-color: var(--brand); }
+
+  /* — Product-programme tiles (7-col grid, shared hairlines) — */
+  .tile-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--hairline); border-left: 1px solid var(--hairline); }
+  @media (min-width: 640px) { .tile-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1024px) { .tile-grid { grid-template-columns: repeat(7, 1fr); } }
+  .tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    gap: 14px; padding: 28px 12px; min-height: 176px; background: #fff;
+    border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+    font-family: "Barlow", sans-serif; font-weight: 700; font-size: 15px; line-height: 1.25; color: #000;
+    transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .tile:hover { background: var(--brand); color: #fff; }
+  .tile:hover svg { color: #fff; stroke: #fff; }
+
+  /* — Scroll reveal (soft, no travel) — */
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); will-change: opacity, transform; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  .skip-link { position: absolute; left: -9999px; top: 0; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 100; font-weight: 700; }
+  .skip-link:focus { left: 0; }
+
+  .section { padding: 56px 0; }
+  @media (min-width: 768px) { .section { padding: 88px 0; } }
+  .bg-cream { background-color: var(--cream); }
+  .bg-white-section { background-color: #ffffff; }
+
+  .product-ph { background-color: var(--cream); position: relative; overflow: hidden; border-radius: 0; }
+
+  /* — Inner page header: image band + title below (Liebherr inner pages) — */
+  .page-header { position: relative; width: 100%; height: 220px; overflow: hidden; background-color: #111; }
+  @media (min-width: 768px) { .page-header { height: 340px; } }
+  .page-header__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .page-header__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.65), rgba(0,0,0,0.15)); }
+  .page-header__content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 28px; }
+
+  /* ── HERO ACCORDION (desktop) ────────────────────────────────────── */
+  .hx { display: none; }
+  @media (min-width: 900px) {
+    .hx { display: grid; height: 520px; width: 100%; background: #000; transition: grid-template-columns 0.5s var(--ease); }
+  }
+  .hx-slice { position: relative; overflow: hidden; border: 0; padding: 0; margin: 0; text-align: left; background: #222; cursor: pointer; color: #fff; }
+  .hx-slice.is-open { cursor: default; }
+  .hx-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 0.9s var(--ease), object-position 0.5s var(--ease); }
+  .hx-slice.is-open .hx-img { transform: scale(1); }
+  .hx-img-ph { position: absolute; inset: 0; background: linear-gradient(135deg, #2b2b2b, #565656); }
+  .hx-shade { position: absolute; inset: 0; background: rgba(0,0,0,0.45); transition: background-color 0.5s var(--ease); }
+  .hx-slice:not(.is-open):hover .hx-shade { background: rgba(0,0,0,0.25); }
+  .hx-slice.is-open .hx-shade { background: linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0) 22%), linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0) 100%); }
+  .hx-index { position: absolute; top: 12px; left: 0; width: 110px; text-align: center; font-family: "Barlow", sans-serif; font-weight: 700; font-size: 18px; color: #fff; z-index: 3; text-shadow: 0 1px 4px rgba(0,0,0,.45); transition: transform 0.5s var(--ease); }
+  .hx-slice.is-open .hx-index { text-align: left; padding-left: 32px; width: auto; }
+  .hx-vtitle { position: absolute; left: 0; bottom: 20px; width: 110px; height: calc(100% - 70px); display: flex; align-items: flex-start; justify-content: center; z-index: 3; opacity: 1; transition: opacity 0.3s var(--ease); }
+  .hx-vtitle span { writing-mode: vertical-rl; transform: rotate(180deg); font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.01em; white-space: nowrap; }
+  .hx-slice.is-open .hx-vtitle { opacity: 0; pointer-events: none; }
+  .hx-body { position: absolute; left: 32px; right: 32px; bottom: 36px; z-index: 3; max-width: 640px; opacity: 0; transform: translateY(10px); transition: opacity 0.3s var(--ease), transform 0.3s var(--ease); pointer-events: none; }
+  .hx-slice.is-open .hx-body { opacity: 1; transform: translateY(0); pointer-events: auto; transition-delay: 0.3s; }
+  .hx-kicker { font-family: "Barlow", sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+  .hx-title { font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.02; margin: 0 0 20px; color: #fff; }
+  .hx-cta { display: inline-flex; align-items: center; gap: 14px; background: var(--brand); color: #fff; padding: 12px 19px; font-family: "Barlow", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 0; transition: background-color 0.3s var(--ease); }
+  .hx-cta:hover { background: var(--brand-dark); }
+
+  /* light photos: dark text, no dark gradient on the open slice */
+  .hx-slice.tone-light.is-open .hx-shade { background: none; }
+  .hx-slice.tone-light.is-open .hx-index { color: #000; text-shadow: none; }
+  .hx-slice.tone-light.is-open .hx-title, .hx-slice.tone-light.is-open .hx-kicker,
+  .hxm-slice.tone-light.is-open .hx-title, .hxm-slice.tone-light.is-open .hx-kicker, .hxm-slice.tone-light.is-open .hxm-bar { color: #000; }
+  .hx-body { max-width: 44%; }
+  .hx-title { font-size: 44px; }
+  .hxm-body { max-width: 100%; }
+
+  /* ── HERO ACCORDION (mobile: vertical) ───────────────────────────── */
+  .hxm { display: grid; width: 100%; background: #000; transition: grid-template-rows 0.5s var(--ease); }
+  @media (min-width: 900px) { .hxm { display: none; } }
+  .hxm-slice { position: relative; overflow: hidden; background: #222; border: 0; border-top: 1px solid rgba(255,255,255,0.25); padding: 0; text-align: left; color: #fff; min-height: 0; }
+  .hxm-bar { position: relative; z-index: 3; display: flex; align-items: center; gap: 14px; width: 100%; height: 60px; padding: 0 16px; background: transparent; border: 0; color: #fff; text-align: left; cursor: pointer; }
+  .hxm-bar b { font-family: "Barlow", sans-serif; font-size: 16px; }
+  .hxm-bar span { font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 22px; }
+  .hxm-body { position: absolute; left: 16px; right: 16px; bottom: 22px; z-index: 3; opacity: 0; transition: opacity 0.3s var(--ease); pointer-events: none; }
+  .hxm-slice.is-open .hxm-body { opacity: 1; pointer-events: auto; transition-delay: 0.25s; }
+  .hxm-slice .hx-title { font-size: 32px; margin-bottom: 14px; }
+
+  /* image blur-up */
+  .blurup { filter: blur(12px); transform: scale(1.03); transition: filter 0.5s ease-out, transform 0.5s ease-out; }
+  .blurup.is-loaded { filter: none; transform: none; }
+
+  /* highlight cards */
+  .hl-img { aspect-ratio: 1 / 1; width: 100%; object-fit: cover; display: block; background: var(--cream); transition: transform 0.6s var(--ease); }
+  .hl-frame { overflow: hidden; }
+  .group:hover .hl-img { transform: scale(1.03); }
+
+  /* nav */
+  .nav-link { position: relative; font-family: "Barlow", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #3A3F45; padding: 6px 0; transition: color 0.3s var(--ease); }
+  .nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: var(--brand); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease); }
+  .nav-link:hover { color: #000; }
+  .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
+  .nav-link.is-active { color: #000; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* — World map — */
+.wm-country {
+  fill: #FFFFFF;
+  stroke: #C8D8E0;
+  stroke-width: 0.4;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.18s ease;
+}
+.wm-country.wm-highlight {
+  fill: #C04028;
+  stroke: #FFFFFF;
+  stroke-width: 0.8;
+  cursor: pointer;
+}
+.wm-country.wm-highlight:hover {
+  fill: #A03520;
+}

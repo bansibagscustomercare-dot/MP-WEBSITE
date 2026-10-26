@@ -1,51 +1,18 @@
 // Hero accordion slides — edit this file to change the homepage slider.
-// Add your photos to /public/images/hero/ and set `image` below (e.g. "/images/hero/drum-yoke.webp").
-// Recommended image: 1600x900 or wider, landscape, product centred-right with space on the left/bottom for text.
-// Keep exactly 5 slides for the best layout.
+// title    = name on the narrow strip (rotated) when the slice is closed
+// headline = text shown on the slice when it is open
+// image    = 1920x900 webp in /public/images/hero/ (product on the right, empty space on the left for text)
+// focus    = horizontal % of the image to show on the narrow (closed) strip, so the product stays visible
+// tone     = "light" (dark text, for light photos) or "dark" (white text, for dark photos)
 export const heroSlides = [
-  {
-    id: "drums",
-    title: "Drums & Yokes",
-    kicker: "Main product",
-    headline: "Heavy-duty cast drums and yokes",
-    cta: "View drums",
-    to: "/products?category=drums",
-    image: "/images/hero.png", // TODO: replace with /images/hero/drums.webp
-  },
-  {
-    id: "gears",
-    title: "Gears & Rings",
-    kicker: "Main product",
-    headline: "Precision bevel, pinion and ring gears",
-    cta: "View gears",
-    to: "/products?category=gears",
-    image: "/workshop.jpg", // TODO
-  },
-  {
-    id: "shafts",
-    title: "Shafts & Clutch",
-    kicker: "Main product",
-    headline: "Hardened shafts and clutch assemblies",
-    cta: "View shafts",
-    to: "/products?category=shafts",
-    image: "/about-workshop.jpg", // TODO
-  },
-  {
-    id: "bearings",
-    title: "Bearings & Pedestals",
-    kicker: "Main product",
-    headline: "Bearings and cast pedestals for every shaft",
-    cta: "View bearings",
-    to: "/products?category=bearings",
-    image: "/images/header-products.png", // TODO
-  },
-  {
-    id: "pulleys",
-    title: "Pulleys & Rollers",
-    kicker: "Main product",
-    headline: "Pulleys and rollers for hoists and conveyors",
-    cta: "View pulleys",
-    to: "/products?category=pulleys",
-    image: "/images/header-about.png", // TODO
-  },
+  { id: "drums", title: "Drums", kicker: "", headline: "CI Miller mixer machine drum", cta: "View drums",
+    to: "/products?category=drums", image: "/images/hero/drums.webp", focus: 71, tone: "light" },
+  { id: "rings", title: "Miller & Sayaji Ring", kicker: "", headline: "85 teeth Sayaji Ring", cta: "View rings",
+    to: "/products?category=gears", image: "/images/hero/rings.webp", focus: 71, tone: "light" },
+  { id: "shafts", title: "Bevel & Drum Shaft", kicker: "", headline: "12 teeth bevel shaft", cta: "View shafts",
+    to: "/products?category=shafts", image: "/images/hero/shafts.webp", focus: 71, tone: "light" },
+  { id: "pedestals", title: "Pedestals", kicker: "", headline: "Yoke & bearing pedestals", cta: "View pedestals",
+    to: "/products?category=pedestals", image: "/images/hero/pedestals.webp", focus: 71, tone: "light" },
+  { id: "pulleys", title: "Bearing pulleys", kicker: "", headline: "Bearing pulleys", cta: "View pulleys",
+    to: "/products?category=pulleys", image: "/images/hero/pulleys.webp", focus: 71, tone: "light" },
 ];
